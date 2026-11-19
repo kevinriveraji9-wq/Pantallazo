@@ -11,10 +11,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0b10; --bg-2:#111119; --card:#16161f; --card-2:#1d1d28; --line:#2a2a37;
-  --text:#f4f4f7; --muted:#a3a3b2; --soft:#6e6e80;
-  --y:#FFC83D; --y-hover:#ffd666; --y-ink:#1a1300;
-  --ok:#3ddc84; --hot:#ff4d64; --r:16px;
+  /* Paleta "Coral noche" */
+  --bg:#120a0c; --bg-2:#1b1013; --card:#22161a; --card-2:#2d1e23; --line:#3b2831;
+  --text:#f8efed; --muted:#c0a8a8; --soft:#9c8587;
+  --y:#FF6B5A; --y-hover:#ff8775; --y-ink:#2b0a04;
+  --ok:#3ddc84; --hot:#ff2f6d; --r:16px;
 }
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
@@ -39,7 +40,7 @@ svg{display:block}
 .btn.sm{height:34px;padding:0 12px;font-size:13px}
 .btn svg{width:18px;height:18px}
 .icon-btn{width:36px;height:36px;border-radius:10px;border:0;background:var(--card-2);display:grid;place-items:center;font-weight:800;font-size:18px;line-height:1}
-.icon-btn:hover{background:#2c2c3a}
+.icon-btn:hover{background:var(--card-2)}
 .icon-btn:disabled{opacity:.35;cursor:not-allowed}
 
 input[type=text],input[type=number],input[type=password],input[type=search],select{height:42px;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);padding:0 12px;outline:none;min-width:0}
@@ -105,7 +106,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .pname small{font-weight:600;color:var(--muted);font-size:13px;margin-left:8px}
 .badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
 .b-ok{background:rgba(61,220,132,.12);color:var(--ok)}
-.b-low{background:rgba(255,200,61,.14);color:var(--y)}
+.b-low{background:rgba(255,107,90,.16);color:var(--y)}
 .b-out{background:rgba(255,77,100,.14);color:var(--hot)}
 .b-inf{background:var(--card-2);color:var(--muted)}
 .b-pop{background:var(--y);color:var(--y-ink)}
@@ -166,7 +167,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .cred span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
 .cred i{font-style:normal;color:var(--soft);font-weight:600;margin-right:2px}
 .mini{height:28px;padding:0 9px;border-radius:8px;border:0;background:var(--card-2);font-size:12px;font-weight:700;color:var(--muted)}
-.mini:hover{color:var(--text);background:#2c2c3a}
+.mini:hover{color:var(--text);background:var(--card-2)}
 .profs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;padding:12px}
 .prof{background:var(--bg-2);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px;box-shadow:inset 4px 0 0 var(--line)}
 .prof.libre{box-shadow:inset 4px 0 0 var(--ok)}
@@ -175,7 +176,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .prof b{font-size:14px}
 .prof small{color:var(--muted);font-size:13px;line-height:1.35}
 .prof .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.acc-full{margin:12px 12px 0;padding:12px 14px;border-radius:12px;background:rgba(255,200,61,.1);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600}
+.acc-full{margin:12px 12px 0;padding:12px 14px;border-radius:12px;background:rgba(255,107,90,.12);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600}
 .acc-full .acts{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
 .acc-notes{padding:0 14px 12px;color:var(--soft);font-size:13px}
 .auto{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:10px;background:rgba(61,220,132,.08);color:var(--ok);font-weight:700;font-size:13px}
@@ -192,7 +193,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 /* save bar */
 .savebar{position:fixed;left:50%;bottom:20px;z-index:40;transform:translate(-50%,150%);transition:transform .3s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;gap:12px;background:var(--text);color:var(--bg);padding:8px 8px 8px 20px;border-radius:999px;font-weight:700;box-shadow:0 20px 50px -15px rgba(0,0,0,.8);width:max-content;max-width:calc(100% - 24px)}
 .savebar.show{transform:translate(-50%,0)}
-.savebar .btn.ghost{color:#55556a}
+.savebar .btn.ghost{color:var(--soft)}
 .savebar .btn.ghost:hover{background:#e3e3ea;color:var(--bg)}
 .toast{position:fixed;left:50%;top:80px;z-index:60;transform:translate(-50%,-10px);opacity:0;background:var(--card-2);color:var(--text);padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;transition:opacity .2s,transform .2s;pointer-events:none}
 .toast.show{opacity:1;transform:translate(-50%,0)}
@@ -213,7 +214,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="#FFC83D"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="#0b0b10"/><rect x="16" y="40" width="16" height="4" rx="2" fill="#FFC83D"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="var(--y,#FF6B5A)"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="var(--bg,#120a0c)"/><rect x="16" y="40" width="16" height="4" rx="2" fill="var(--y,#FF6B5A)"/></symbol>
 </svg>
 
 <section class="login" id="login">
@@ -413,6 +414,6 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="admin.js"></script>
+<script src="admin.js?v=3"></script>
 </body>
 </html>

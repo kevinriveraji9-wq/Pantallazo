@@ -3,7 +3,7 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var esc = function (s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
-  var color = function (c) { return /^#[0-9a-f]{6}$/i.test(c) ? c : "#FFC83D"; };
+  var color = function (c) { return /^#[0-9a-f]{6}$/i.test(c) ? c : "#FF6B5A"; };
 
   function load() {
     return fetch("api.php?r=catalogo", { cache: "no-store" })
@@ -85,6 +85,7 @@
       });
     });
 
+    var ADD_HTML = '<svg><use href="#i-plus"/></svg>Agregar';
     /* ---------- catálogo por categorías ---------- */
     var cats = $("#cats"); cats.innerHTML = "";
     var chips = $("#chips"), cards = [], sections = [];
@@ -125,7 +126,6 @@
       cats.appendChild(sec); sections.push(sec);
     });
 
-    var ADD_HTML = '<svg><use href="#i-plus"/></svg>Agregar';
     function card(p, idx) {
       var abiertas = p.opciones.filter(disponible);
       var op = abiertas[0] || p.opciones[0];

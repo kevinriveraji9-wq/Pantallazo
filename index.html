@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pantallazo · Netflix, Disney+, Max y más por WhatsApp</title>
 <meta name="description" content="Pantallas y cuentas completas de Netflix, Disney+, Max, Prime Video, Spotify y más. Arma tu pedido y recíbelo por WhatsApp en minutos.">
-<meta name="theme-color" content="#0b0b10">
+<meta name="theme-color" content="#120a0c">
 <link rel="icon" type="image/svg+xml" href="marca/pantallazo-icono.svg">
 <link rel="apple-touch-icon" href="marca/pantallazo-perfil-whatsapp.png">
 <meta property="og:title" content="Pantallazo · Pantallas y cuentas de streaming">
@@ -18,10 +18,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0b0b10; --bg-2:#111119; --card:#16161f; --card-2:#1d1d28; --line:#2a2a37;
-  --text:#f4f4f7; --muted:#a3a3b2; --soft:#6e6e80;
-  --wa:#FFC83D; --wa-dark:#f2b81f; --wa-ink:#1a1300; --wa-hover:#ffd666;
-  --hot:#ff3d5a; --gold:#ffc83d; --ok:#3ddc84;
+  /* Paleta "Coral noche" */
+  --bg:#120a0c; --bg-2:#1b1013; --card:#22161a; --card-2:#2d1e23; --line:#3b2831;
+  --text:#f8efed; --muted:#c0a8a8; --soft:#9c8587;
+  --wa:#FF6B5A; --wa-dark:#f0503c; --wa-ink:#2b0a04; --wa-hover:#ff8775;
+  --hot:#ff2f6d; --gold:#FFC83D; --ok:#3ddc84;
   --r:18px; --r-sm:12px;
   --m:clamp(16px,4vw,40px);
   --ease:cubic-bezier(.2,.7,.2,1);
@@ -42,9 +43,9 @@ button{cursor:pointer}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 24px;border-radius:999px;border:0;font-weight:700;font-size:16px;transition:transform .15s var(--ease),background-color .2s,box-shadow .2s}
 .btn:active{transform:scale(.97)}
 .btn-wa{background:var(--wa);color:var(--wa-ink)}
-.btn-wa:hover{background:var(--wa-hover);box-shadow:0 8px 28px -8px rgba(255,200,61,.6)}
+.btn-wa:hover{background:var(--wa-hover);box-shadow:0 8px 28px -8px rgba(255,107,90,.6)}
 .btn-ghost{background:var(--card-2);color:var(--text)}
-.btn-ghost:hover{background:#262634}
+.btn-ghost:hover{background:var(--card-2)}
 .btn svg{width:20px;height:20px;flex:none}
 
 /* promo strip */
@@ -61,19 +62,19 @@ button{cursor:pointer}
 .nav-links{display:flex;gap:28px;font-weight:600;color:var(--muted);font-size:15px}
 .nav-links a:hover{color:var(--text)}
 .cart-btn{position:relative;display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:999px;border:0;background:var(--card-2);font-weight:700}
-.cart-btn:hover{background:#262634}
+.cart-btn:hover{background:var(--card-2)}
 .cart-btn svg{width:20px;height:20px}
-.badge{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--hot);color:#fff;font-size:12px;font-weight:800;display:grid;place-items:center}
+.badge{min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--hot);color:#2b0004;font-size:12px;font-weight:800;display:grid;place-items:center}
 .badge[data-n="0"]{display:none}
 
 /* hero */
 .hero{position:relative;overflow:hidden;padding:72px 0 64px}
-.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;background:radial-gradient(closest-side,rgba(255,200,61,.16),transparent);pointer-events:none}
-.hero::after{content:"";position:absolute;inset:auto auto -30% -10%;width:640px;height:640px;background:radial-gradient(closest-side,rgba(255,200,61,.08),transparent);pointer-events:none}
+.hero::before{content:"";position:absolute;inset:-20% -10% auto auto;width:720px;height:720px;background:radial-gradient(closest-side,rgba(255,107,90,.18),transparent);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:auto auto -30% -10%;width:640px;height:640px;background:radial-gradient(closest-side,rgba(255,107,90,.08),transparent);pointer-events:none}
 .hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--card-2);font-size:14px;font-weight:600;color:var(--muted);margin-bottom:22px}
-.pill i{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(255,200,61,.2);animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,200,61,0)}}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(255,107,90,.25);animation:pulse 2s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(255,107,90,0)}}
 .hero h1{font-size:clamp(2.4rem,1.4rem + 4vw,4.4rem);font-weight:800;line-height:1.02;letter-spacing:-.035em}
 .hero h1 em{font-style:normal;color:var(--wa)}
 .hero-sub{margin-top:20px;font-size:clamp(1.05rem,1rem + .3vw,1.25rem);color:var(--muted);max-width:34em}
@@ -97,8 +98,8 @@ button{cursor:pointer}
 .tile.a::after{background:rgba(255,255,255,.22)}
 .tile.d{background:var(--card-2);color:var(--text)}
 .tile.d small{color:var(--wa)}
-.tile.d::after{background:rgba(255,200,61,.08)}
-.tile.o{background:var(--bg-2);color:var(--text);box-shadow:inset 0 0 0 2px rgba(255,200,61,.35)}
+.tile.d::after{background:rgba(255,107,90,.10)}
+.tile.o{background:var(--bg-2);color:var(--text);box-shadow:inset 0 0 0 2px rgba(255,107,90,.35)}
 .tile.o small{color:var(--muted)}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--pc,#fff);margin-right:8px;vertical-align:middle;position:relative;top:-2px}
 
@@ -139,10 +140,10 @@ button{cursor:pointer}
 @keyframes aura{from{transform:translate(0,0) scale(1)}to{transform:translate(-18%,14%) scale(1.3)}}
 .prod:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(0,0,0,.8)}
 .prod:hover::before{opacity:.3}
-.prod-head{display:flex;align-items:center;gap:9px}
+.prod-head{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .prod-logo{width:30px;height:30px;border-radius:7px;object-fit:contain;background:var(--bg-2);flex:none}
 .dot{width:11px;height:11px;border-radius:50%;background:var(--pc,var(--wa));flex:none}
-.prod-name{font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.1;flex:1;min-width:0}
+.prod-name{font-size:18px;font-weight:800;letter-spacing:-.025em;line-height:1.1;flex:1 1 auto;min-width:0;overflow-wrap:anywhere}
 .tag{font-size:10px;font-weight:800;padding:3px 8px;border-radius:999px;background:var(--wa);color:var(--wa-ink);white-space:nowrap}
 .tag.out{background:var(--card-2);color:var(--soft)}
 .prod-note{font-size:12px;color:var(--soft);line-height:1.35;margin-top:-3px}
@@ -158,7 +159,7 @@ button{cursor:pointer}
 .prod-price s{font-size:12px;color:var(--soft)}
 .prod-price span{width:100%;font-size:11px;color:var(--soft);margin-top:-3px}
 .save{font-size:10px;font-weight:800;background:var(--wa);color:var(--wa-ink);border-radius:999px;padding:2px 7px}
-.add{width:100%;height:42px;border-radius:999px;border:0;background:var(--wa);color:var(--wa-ink);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px;transition:transform .15s var(--ease),background-color .2s}
+.add{width:100%;height:42px;border-radius:999px;border:0;background:var(--wa);color:var(--wa-ink);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;gap:6px;white-space:nowrap;transition:transform .15s var(--ease),background-color .2s}
 .add:hover{background:var(--wa-hover)}
 .add:active{transform:scale(.96)}
 .add svg{width:17px;height:17px}
@@ -185,7 +186,7 @@ button{cursor:pointer}
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
 .step{background:var(--card);border-radius:var(--r);padding:24px}
-.step-ic{width:52px;height:52px;border-radius:14px;background:rgba(255,200,61,.12);color:var(--wa);display:grid;place-items:center;margin-bottom:18px}
+.step-ic{width:52px;height:52px;border-radius:14px;background:rgba(255,107,90,.14);color:var(--wa);display:grid;place-items:center;margin-bottom:18px}
 .step-ic svg{width:26px;height:26px}
 .step h3{font-size:19px;font-weight:800;letter-spacing:-.02em;margin-bottom:6px}
 .step p{color:var(--muted);font-size:15px}
@@ -224,14 +225,14 @@ footer{padding:56px 0 110px;color:var(--muted);font-size:14px}
 .legal{font-size:13px;color:var(--soft);max-width:80ch}
 
 /* floating whatsapp */
-.fab{position:fixed;right:20px;bottom:20px;z-index:40;width:60px;height:60px;border-radius:50%;background:var(--wa);color:var(--wa-ink);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(255,200,61,.55);transition:transform .2s var(--ease)}
+.fab{position:fixed;right:20px;bottom:20px;z-index:40;width:60px;height:60px;border-radius:50%;background:var(--wa);color:var(--wa-ink);display:grid;place-items:center;box-shadow:0 10px 30px -6px rgba(255,107,90,.55);transition:transform .2s var(--ease)}
 .fab:hover{transform:scale(1.08)}
 .fab svg{width:30px;height:30px}
 
 /* mobile cart bar */
 .mbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:41;display:none;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 18px;border-radius:999px;background:var(--text);color:var(--bg);font-weight:700;transform:translateY(140%);transition:transform .3s var(--ease)}
 .mbar.show{transform:none}
-.mbar small{display:block;font-size:12px;font-weight:600;color:#55556a}
+.mbar small{display:block;font-size:12px;font-weight:600;color:var(--soft)}
 .mbar .btn{min-height:46px;padding:0 18px}
 
 /* drawer */
@@ -256,7 +257,7 @@ body.open{overflow:hidden}
 .item-r b{font-size:15px}
 .qty{display:flex;align-items:center;gap:2px;background:var(--bg-2);border-radius:999px;padding:3px}
 .qty button{width:30px;height:30px;border-radius:50%;border:0;background:var(--card-2);font-weight:800;line-height:1}
-.qty button:hover{background:#2c2c3a}
+.qty button:hover{background:var(--card-2)}
 .qty output{min-width:22px;text-align:center;font-weight:700;font-size:14px}
 .d-foot{padding:18px 22px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .sum{display:flex;justify-content:space-between;color:var(--muted);font-size:15px}
@@ -333,7 +334,7 @@ body.open{overflow:hidden}
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91A9.86 9.86 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.23 8.23 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24a8.2 8.2 0 0 1 8.24 8.25c0 4.54-3.7 8.23-8.25 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.13-.56-1.35-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.16-.48-.29Z"/></symbol>
-  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="#FFC83D"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="#0b0b10"/><rect x="16" y="40" width="16" height="4" rx="2" fill="#FFC83D"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="var(--wa,#FF6B5A)"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="var(--bg,#120a0c)"/><rect x="16" y="40" width="16" height="4" rx="2" fill="var(--wa,#FF6B5A)"/></symbol>
   <symbol id="i-cart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.5L21 8H6.2M10 21h.01M17 21h.01"/></symbol>
   <symbol id="i-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" d="M12 5v14M5 12h14"/></symbol>
   <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
@@ -498,6 +499,6 @@ body.open{overflow:hidden}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="app.js"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
