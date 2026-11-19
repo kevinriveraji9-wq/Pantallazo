@@ -17,7 +17,24 @@ Tienda de pantallas y cuentas de streaming con pedido por WhatsApp, panel de adm
 | `router.php` | Solo para probar en tu computador |
 | `version-anterior/` | Primer diseño. No se publica |
 
-## Subirlo a DoWeb (cPanel)
+## Cómo está instalado en DonWeb (pantallazo.site)
+
+La tienda comparte el hosting *Web Hosting Plan Full* con Costruker, sin afectarlo:
+
+| Qué | Dónde |
+|---|---|
+| Código de la tienda | `/public_html/pantallazo/`, desplegado desde este repositorio con **Ferozo > Mi Sitio Web > GIT** |
+| Clave y datos privados | `/pantallazo-datos/` (fuera de la web): `config.php`, `catalogo.json`, `cuentas.json`, `respaldos/` |
+| Dominio | `pantallazo.site` agregado en *Mi Cuenta > Web Hosting > Dominios configurados* |
+| Enrutamiento | 3 reglas al inicio del `.htaccess` del repositorio de Costruker (`yo`) que mandan `pantallazo.site` a `/pantallazo/` |
+
+**Para actualizar la tienda:** sube los cambios a este repositorio y en Ferozo > GIT pulsa *Desplegar* en la fila de Pantallazo. Tus datos no se tocan porque viven en `/pantallazo-datos/`.
+
+**Para cambiar la clave del panel:** Ferozo > Administrador de archivos > `pantallazo-datos/config.php` > editar `ADMIN_PASSWORD`.
+
+**Si quitas las 3 reglas del `.htaccess` de Costruker**, pantallazo.site deja de mostrar la tienda (la tienda sigue en `/public_html/pantallazo/`).
+
+## Subirlo a otro hosting PHP (cPanel)
 
 ### 1. Prepara el hosting
 
