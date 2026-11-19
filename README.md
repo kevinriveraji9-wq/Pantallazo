@@ -19,6 +19,12 @@ Tienda de pantallas y cuentas de streaming con pedido por WhatsApp, panel de adm
 
 ## Cómo está instalado en DonWeb (pantallazo.site)
 
+- Tienda: **https://pantallazo.site**
+- Panel: **https://pantallazo.site/admin**
+
+Certificado SSL de Let's Encrypt incluido en el plan, con renovación automática. El paso de `http` a `https` lo hace el `.htaccess` de la raíz; por eso el de la tienda lo tiene desactivado.
+
+
 La tienda comparte el hosting *Web Hosting Plan Full* con Costruker, sin afectarlo:
 
 | Qué | Dónde |
