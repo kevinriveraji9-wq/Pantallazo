@@ -117,5 +117,5 @@ Tienda en http://localhost:5173 y panel en http://localhost:5173/admin. La clave
 - Las claves de tus cuentas se guardan **sin cifrar** en `cuentas.json`. Por eso la carpeta de datos debe ir fuera de `public_html`. Si la dejas en `public_html/data`, la protegen `.htaccess` y `data/.htaccess`; comprueba el error 403 del paso 5.
 - Cada cambio guarda una copia anterior en `respaldos/` dentro de la carpeta de datos (últimas 40).
 - Descarga con **Exportar** un respaldo semanal y guárdalo en un lugar seguro: incluye claves.
-- Tras 8 intentos fallidos de entrar al panel, se bloquea 15 minutos. La sesión dura 12 horas.
+- Freno contra adivinar la clave: 5 fallos desde una misma conexión la bloquean 15 minutos, 20 fallos en total bloquean el panel 15 minutos, y cada intento fallido tarda medio segundo en responder. La sesión dura 12 horas.
 - Al actualizar la web, sube solo los archivos de la tienda; **no reemplaces la carpeta de datos**.

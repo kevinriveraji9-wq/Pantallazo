@@ -252,23 +252,37 @@ if ($r === 'catalogo' && $m === 'GET') {
 }
 
 if ($r === 'login' && $m === 'POST') {
-  if (!defined('ADMIN_PASSWORD') || strlen(ADMIN_PASSWORD) < 10 || ADMIN_PASSWORD === 'CAMBIA-ESTA-CLAVE') fallar(500, 'Configura una clave de al menos 10 caracteres en config.php.');
+  /* La clave puede ser corta (un PIN), así que el freno por intentos es lo que la protege:
+     5 fallos desde una IP la bloquean 15 minutos, y 20 fallos en total (vengan de donde vengan)
+     bloquean el panel 15 minutos. Además cada fallo tarda medio segundo en responder. */
+  $clave = defined('ADMIN_PASSWORD') ? (string) ADMIN_PASSWORD : '';
+  if (strlen($clave) < 6 || $clave === 'CAMBIA-ESTA-CLAVE') fallar(500, 'Configura una clave de al menos 6 caracteres en config.php.');
   $lock = bloquear();
   $ip = ipCliente();
-  $int = leerJSON($INTENTOS, []);
-  foreach ($int as $k => $v) if ($v['hasta'] < time() && $v['n'] === 0) unset($int[$k]);
-  $a = isset($int[$ip]) ? $int[$ip] : ['n' => 0, 'hasta' => 0];
-  if ($a['hasta'] > time()) fallar(429, 'Demasiados intentos. Espera 15 minutos.');
+  $ahora = time();
+  $est = leerJSON($INTENTOS, []);
+  if (!isset($est['ips']) || !is_array($est['ips'])) $est = ['ips' => [], 'fallos' => [], 'hasta' => 0];
+  if (!isset($est['fallos']) || !is_array($est['fallos'])) $est['fallos'] = [];
+  if (!isset($est['hasta'])) $est['hasta'] = 0;
+  foreach ($est['ips'] as $k => $v) if (!is_array($v) || (empty($v['n']) && (!isset($v['hasta']) || $v['hasta'] < $ahora))) unset($est['ips'][$k]);
+  $est['fallos'] = array_values(array_filter($est['fallos'], function ($t) use ($ahora) { return is_numeric($t) && $t > $ahora - 900; }));
+  $a = (isset($est['ips'][$ip]) && is_array($est['ips'][$ip])) ? $est['ips'][$ip] : ['n' => 0, 'hasta' => 0];
+  if ($a['hasta'] > $ahora || $est['hasta'] > $ahora) fallar(429, 'Demasiados intentos. Espera 15 minutos.');
   $b = cuerpo();
   $pass = isset($b['password']) ? (string) $b['password'] : '';
-  $ok = strpos(ADMIN_PASSWORD, '$2y$') === 0 ? password_verify($pass, ADMIN_PASSWORD) : hash_equals(hash('sha256', ADMIN_PASSWORD), hash('sha256', $pass));
+  $ok = strpos($clave, '$2y$') === 0 ? password_verify($pass, $clave) : hash_equals(hash('sha256', $clave), hash('sha256', $pass));
   if (!$ok) {
+    usleep(500000);
     $a['n']++;
-    if ($a['n'] >= 8) { $a = ['n' => 0, 'hasta' => time() + 15 * 60]; }
-    $int[$ip] = $a; escribirJSON($INTENTOS, $int);
+    if ($a['n'] >= 5) $a = ['n' => 0, 'hasta' => $ahora + 900];
+    $est['ips'][$ip] = $a;
+    $est['fallos'][] = $ahora;
+    if (count($est['fallos']) >= 20) { $est['hasta'] = $ahora + 900; $est['fallos'] = []; }
+    escribirJSON($INTENTOS, $est);
     fallar(401, 'Clave incorrecta');
   }
-  unset($int[$ip]); escribirJSON($INTENTOS, $int);
+  unset($est['ips'][$ip]);
+  escribirJSON($INTENTOS, $est);
   $token = rtrim(strtr(base64_encode(random_bytes(24)), '+/', '-_'), '=');
   $s = leerJSON($SESIONES, []);
   foreach ($s as $k => $exp) if ($exp < time()) unset($s[$k]);

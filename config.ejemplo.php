@@ -8,7 +8,8 @@
  * 2. Cambia la clave. Nunca subas config.php a GitHub (ya está excluido).
  */
 
-// Clave del panel de administración (mínimo 10 caracteres).
+// Clave del panel de administración (mínimo 6 caracteres; cuanto más larga, más segura).
+// Puedes escribirla tal cual, o pegar aquí un hash de password_hash() si prefieres no dejarla a la vista.
 define('ADMIN_PASSWORD', 'CAMBIA-ESTA-CLAVE');
 
 // Carpeta donde se guardan el catálogo, las cuentas y los respaldos.
