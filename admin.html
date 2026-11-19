@@ -14,7 +14,7 @@
   /* Paleta "Verde noche" */
   --bg:#07100c; --bg-2:#0d1a14; --card:#122219; --card-2:#1b2f23; --line:#27412f;
   --text:#eef7f1; --muted:#a7c0b2; --soft:#7e9889;
-  --y:#25D366; --y-hover:#4ae383; --y-ink:#04260f;
+  --y:#1DB954; --y-hover:#27cf64; --y-ink:#04230f;
   --ok:#8BE8AC; --hot:#ff4d6d; --r:16px;
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -106,7 +106,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .pname small{font-weight:600;color:var(--muted);font-size:13px;margin-left:8px}
 .badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
 .b-ok{background:rgba(61,220,132,.12);color:var(--ok)}
-.b-low{background:rgba(37,211,102,.16);color:var(--y)}
+.b-low{background:rgba(29,185,84,.16);color:var(--y)}
 .b-out{background:rgba(255,77,100,.14);color:var(--hot)}
 .b-inf{background:var(--card-2);color:var(--muted)}
 .b-pop{background:var(--y);color:var(--y-ink)}
@@ -176,7 +176,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .prof b{font-size:14px}
 .prof small{color:var(--muted);font-size:13px;line-height:1.35}
 .prof .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.acc-full{margin:12px 12px 0;padding:12px 14px;border-radius:12px;background:rgba(37,211,102,.12);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600}
+.acc-full{margin:12px 12px 0;padding:12px 14px;border-radius:12px;background:rgba(29,185,84,.12);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600}
 .acc-full .acts{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
 .acc-notes{padding:0 14px 12px;color:var(--soft);font-size:13px}
 .auto{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:10px;background:rgba(61,220,132,.08);color:var(--ok);font-weight:700;font-size:13px}
@@ -214,7 +214,7 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="var(--y,#25D366)"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="var(--bg,#07100c)"/><rect x="16" y="40" width="16" height="4" rx="2" fill="var(--y,#25D366)"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="var(--y,#1DB954)"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="var(--bg,#07100c)"/><rect x="16" y="40" width="16" height="4" rx="2" fill="var(--y,#1DB954)"/></symbol>
 </svg>
 
 <section class="login" id="login">
@@ -414,6 +414,6 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 </div>
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<script src="admin.js?v=4"></script>
+<script src="admin.js?v=5"></script>
 </body>
 </html>
