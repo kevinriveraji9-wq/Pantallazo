@@ -149,6 +149,10 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
 .modal-h h2{font-size:20px;font-weight:800}
 .opedit{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,.8fr) auto auto;gap:8px;align-items:end;background:var(--card);border-radius:12px;padding:10px}
 .opedit input[type=text],.opedit input[type=number]{width:100%}
+.opedit.auto{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) minmax(0,1.1fr) minmax(0,1.7fr) auto}
+.op-auto{align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:1px;background:rgba(61,220,132,.08);border-radius:10px;padding:7px 14px;font-size:13px;font-weight:700;color:var(--ok);min-height:42px;white-space:nowrap}
+.op-auto b{font-size:16px;font-weight:800}
+.op-auto small{font-size:11px;font-weight:600;color:var(--muted);line-height:1.25;white-space:normal}
 .check input[type=color]{width:44px;height:34px;padding:3px}
 .modal{overflow-x:hidden}
 .modal-f{display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:-24px;background:var(--bg-2);padding:12px 0 0}
@@ -199,8 +203,9 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
   .colhead{display:none}
   .orow{grid-template-columns:1fr 1fr;gap:10px}
   .orow .oname{grid-column:1/-1}
-  .opedit{grid-template-columns:1fr 1fr}
+  .opedit,.opedit.auto{grid-template-columns:1fr 1fr}
   .opedit label.f:first-child{grid-column:1/-1}
+  .op-auto{grid-column:1/-1}
   .form{grid-template-columns:1fr}
   .top .hide-m{display:none}
 }
@@ -322,7 +327,8 @@ main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
     <div class="form" style="max-width:none">
       <label class="f"><span>Nombre</span><input type="text" id="m-nombre" maxlength="50"></label>
       <label class="f"><span>Categoría</span><select id="m-cat"></select></label>
-      <label class="f full"><span>Descripción corta</span><input type="text" id="m-nota" maxlength="80" placeholder="Cuenta completa: 4 perfiles"></label>
+      <label class="f"><span>Descripción corta</span><input type="text" id="m-nota" maxlength="80" placeholder="Cuenta completa: 4 perfiles"></label>
+      <label class="f"><span>Logo (opcional)</span><input type="text" id="m-logo" maxlength="60" placeholder="netflix.png — archivo en la carpeta /logos"></label>
       <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap" class="full">
         <label class="check"><input type="color" id="m-color"> Color de la plataforma</label>
         <label class="check"><input type="checkbox" id="m-pop"> Marcar como «Más pedido»</label>

@@ -278,6 +278,7 @@
     $("#m-cat").innerHTML = draft.categorias.map(function (c) { return '<option value="' + esc(c.id) + '">' + esc(c.nombre) + "</option>"; }).join("");
     $("#m-cat").value = p.categoria;
     $("#m-nota").value = p.nota || "";
+    $("#m-logo").value = p.logo || "";
     $("#m-color").value = /^#[0-9a-f]{6}$/i.test(p.color) ? p.color : "#FFC83D";
     $("#m-pop").checked = !!p.popular; $("#m-act").checked = p.activo !== false;
     $("#m-del").hidden = i < 0;
@@ -289,6 +290,11 @@
   $$("#modal [data-close]").forEach(function (b) { b.addEventListener("click", closeModal); });
   $("#modal").addEventListener("click", function (e) { if (e.target === $("#modal")) closeModal(); });
 
+  function autoLibres(tipo) {
+    var p = editing > -1 ? draft.productos[editing] : null;
+    if (!p) return 0;
+    return (SC[p.id] || { perfil: 0, cuenta: 0 })[tipo] || 0;
+  }
   function drawOps() {
     $("#m-ops").innerHTML = mOps.map(function (o, i) {
       var auto = isAuto(o), inf = !auto && (o.stock === null || o.stock === undefined);
@@ -300,8 +306,10 @@
           '<option value="manual"' + (tipo === "manual" ? " selected" : "") + ">A mano</option>" +
           '<option value="perfil"' + (tipo === "perfil" ? " selected" : "") + ">Perfiles libres</option>" +
           '<option value="cuenta"' + (tipo === "cuenta" ? " selected" : "") + ">Cuentas libres</option></select></label>" +
-        '<label class="f"><span>Cantidad</span><input type="number" min="0" step="1" data-k="stock" value="' + (auto || inf ? "" : o.stock) + '" ' + (auto || inf ? "disabled" : "") + ' placeholder="' + (auto ? "auto" : "∞") + '"></label>' +
-        '<label class="check" style="height:42px"><input type="checkbox" data-k="inf" ' + (inf ? "checked" : "") + (auto ? " disabled" : "") + "> Sin límite</label>" +
+        (auto
+          ? '<div class="op-auto"><b>' + autoLibres(tipo) + "</b> " + (tipo === "perfil" ? "perfiles libres" : "cuentas libres") + " ahora<small>Se cuenta solo desde «Cuentas y perfiles»</small></div>"
+          : '<label class="f"><span>Cantidad</span><input type="number" min="0" step="1" data-k="stock" value="' + (inf ? "" : o.stock) + '" ' + (inf ? "disabled" : "") + ' placeholder="sin límite"></label>' +
+            '<label class="check" style="height:42px"><input type="checkbox" data-k="inf" ' + (inf ? "checked" : "") + "> Sin límite</label>") +
         '<button class="icon-btn" type="button" data-rm aria-label="Quitar opción" ' + (mOps.length < 2 ? "disabled" : "") + ">×</button></div>";
     }).join("");
   }
@@ -338,6 +346,7 @@
     var p = {
       id: editing > -1 ? draft.productos[editing].id : uniq(slug(nombre), otherIds),
       nombre: nombre, categoria: $("#m-cat").value, color: $("#m-color").value, nota: $("#m-nota").value.trim(),
+      logo: $("#m-logo").value.trim(),
       popular: $("#m-pop").checked, activo: $("#m-act").checked, opciones: ops
     };
     if (editing > -1) draft.productos[editing] = p; else draft.productos.push(p);

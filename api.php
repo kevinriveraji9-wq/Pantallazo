@@ -172,6 +172,8 @@ function validarCatalogo($c) {
       'id' => $id, 'nombre' => $nombre, 'categoria' => $cat,
       'color' => (isset($p['color']) && preg_match('/^#[0-9a-f]{6}$/i', $p['color'])) ? $p['color'] : '#FFC83D',
       'nota' => txt(isset($p['nota']) ? $p['nota'] : '', 80),
+      /* nombre de un archivo dentro de la carpeta /logos (opcional, lo sube el dueño) */
+      'logo' => (isset($p['logo']) && preg_match('/^[A-Za-z0-9._-]{1,60}\.(png|jpg|jpeg|webp|svg)$/i', $p['logo'])) ? $p['logo'] : '',
       'popular' => !empty($p['popular']), 'activo' => !(isset($p['activo']) && $p['activo'] === false),
       'opciones' => $ops
     ];

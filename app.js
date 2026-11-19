@@ -68,12 +68,32 @@
     };
     var libre = function (p, op) { return op.stock === null || op.stock === undefined ? Infinity : op.stock - enCarrito(p.id, op.id); };
 
-    /* ---------- catalog by category ---------- */
+    /* ---------- duración: una sola para todo el catálogo ---------- */
+    var mesesSel = C.meses[0].meses;
+    try { var gm = +localStorage.getItem("meses-v1"); if (mesesBy[gm]) mesesSel = gm; } catch (e) {}
+    var dur = $("#dur");
+    dur.innerHTML = C.meses.map(function (m) {
+      return '<button type="button" data-m="' + m.meses + '" aria-pressed="' + (m.meses === mesesSel) + '">' +
+        mesTxt(m.meses) + (m.descuento ? "<em>−" + pct(m.descuento) + "</em>" : "") + "</button>";
+    }).join("");
+    $$("button", dur).forEach(function (b) {
+      b.addEventListener("click", function () {
+        mesesSel = +b.dataset.m;
+        try { localStorage.setItem("meses-v1", mesesSel); } catch (e) {}
+        $$("button", dur).forEach(function (o) { o.setAttribute("aria-pressed", o === b); });
+        cards.forEach(function (c) { c._draw(); });
+      });
+    });
+
+    /* ---------- catálogo por categorías ---------- */
     var cats = $("#cats"); cats.innerHTML = "";
     var chips = $("#chips"), cards = [], sections = [];
+    var hayStock = function (p) { return p.opciones.some(disponible); };
     C.categorias.forEach(function (cat) {
       var lista = productos.filter(function (p) { return p.categoria === cat.id; });
       if (!lista.length) return;
+      var libres = lista.filter(hayStock), vacios = lista.filter(function (p) { return !hayStock(p); });
+
       var ch = document.createElement("button");
       ch.type = "button"; ch.className = "chip"; ch.dataset.f = cat.id; ch.setAttribute("aria-pressed", "false");
       ch.innerHTML = esc(cat.nombre) + "<small>" + lista.length + "</small>";
@@ -81,53 +101,91 @@
 
       var sec = document.createElement("section");
       sec.className = "cat"; sec.id = "cat-" + cat.id; sec.dataset.cat = cat.id;
-      sec.innerHTML = '<div class="cat-h"><h3>' + esc(cat.nombre) + "</h3><span>" + lista.length + (lista.length === 1 ? " plataforma" : " plataformas") + '</span></div><div class="grid"></div>';
+      sec.innerHTML = '<div class="cat-h"><h3>' + esc(cat.nombre) + "</h3><span>" +
+        (libres.length ? libres.length + (libres.length === 1 ? " disponible" : " disponibles") : "sin disponibles por ahora") +
+        '</span></div><div class="grid"></div>';
       var grid = $(".grid", sec);
-      lista.forEach(function (p, idx) { var c = card(p, idx); grid.appendChild(c); cards.push(c); });
+      libres.concat(vacios).forEach(function (p, idx) { var c = card(p, idx); grid.appendChild(c); cards.push(c); });
+
+      /* los agotados se pliegan al final, pero solo si hay algo que sí se puede comprar */
+      if (libres.length && vacios.length) {
+        sec.classList.add("plegada");
+        sec.dataset.plegable = "1"; sec.dataset.plegada = "1";
+        var fold = document.createElement("button");
+        fold.type = "button"; fold.className = "fold";
+        fold.textContent = "Ver los agotados (" + vacios.length + ")";
+        fold.addEventListener("click", function () {
+          var plegada = sec.classList.toggle("plegada");
+          sec.dataset.plegada = plegada ? "1" : "0";
+          fold.textContent = plegada ? "Ver los agotados (" + vacios.length + ")" : "Ocultar los agotados";
+          $$(".prod", sec).forEach(function (c) { c.classList.add("in"); });
+        });
+        sec.appendChild(fold);
+      }
       cats.appendChild(sec); sections.push(sec);
     });
 
+    var ADD_HTML = '<svg><use href="#i-plus"/></svg>Agregar';
     function card(p, idx) {
       var abiertas = p.opciones.filter(disponible);
       var op = abiertas[0] || p.opciones[0];
       var agotado = !abiertas.length;
       var el = document.createElement("article");
-      el.className = "prod" + (agotado ? " agotado" : "");
-      el.setAttribute("data-rise", ""); el.style.setProperty("--i", idx % 4);
-      el.dataset.cat = p.categoria; el.dataset.name = (p.nombre + " " + p.nota).toLowerCase();
+      el.className = "prod" + (agotado ? " agotado" : "") + (p.logo ? " con-logo" : "");
+      el.setAttribute("data-rise", ""); el.style.setProperty("--i", idx % 6);
+      el.style.setProperty("--pc", color(p.color));
+      el.dataset.cat = p.categoria;
+      el.dataset.name = (p.nombre + " " + (p.nota || "")).toLowerCase();
+      el.dataset.inicial = (p.nombre.trim().charAt(0) || "·").toUpperCase();
+      var marca = p.logo
+        ? '<img class="prod-logo" src="logos/' + esc(p.logo) + '" alt="" width="30" height="30" loading="lazy">'
+        : '<span class="dot" aria-hidden="true"></span>';
       var seg = p.opciones.length > 1
-        ? '<div class="seg" role="group" aria-label="Tipo de acceso" style="grid-template-columns:repeat(' + p.opciones.length + ',1fr)">' +
+        ? '<div class="seg" role="group" aria-label="Tipo de acceso" style="grid-template-columns:repeat(' + p.opciones.length + ',minmax(0,1fr))">' +
           p.opciones.map(function (o) { return '<button type="button" data-o="' + esc(o.id) + '" aria-pressed="' + (o === op) + '">' + esc(o.nombre) + "</button>"; }).join("") + "</div>"
         : '<div class="seg-one">' + esc(op.nombre) + "</div>";
-      var tag = agotado ? '<span class="tag out">Agotado</span>' : p.popular ? '<span class="tag">Más pedido</span>' : "<span></span>";
+      var tag = agotado ? '<span class="tag out">Agotado</span>' : p.popular ? '<span class="tag">Más pedido</span>' : "";
       el.innerHTML =
-        '<div class="prod-top" style="--pc:' + color(p.color) + '">' + tag +
-        '<h3 class="prod-name"><span class="dot" aria-hidden="true"></span>' + esc(p.nombre) + "</h3></div>" +
-        '<div class="prod-body"><p class="prod-note">' + esc(p.nota || "") + ' <span class="stock" data-stock></span></p>' + seg + '<div class="rows"></div>' +
-        (agotado ? '<a class="btn btn-ghost" style="min-height:44px;font-size:14px" target="_blank" rel="noopener" href="' + esc(waLink("Hola " + C.negocio + ", ¿cuándo vuelve a haber " + p.nombre + "?")) + '">Avísame cuando haya</a>' : "") + "</div>";
-      var rows = $(".rows", el), stockEl = $("[data-stock]", el);
+        '<div class="prod-head">' + marca + '<h3 class="prod-name">' + esc(p.nombre) + "</h3>" + tag + "</div>" +
+        (p.nota ? '<p class="prod-note">' + esc(p.nota) + "</p>" : "") + seg +
+        '<p class="stock" data-stock></p><div class="prod-price" data-price></div>' +
+        (agotado
+          ? '<a class="avisar" target="_blank" rel="noopener" href="' + esc(waLink("Hola " + C.negocio + ", ¿cuándo vuelve a haber " + p.nombre + "?")) + '">Avísame cuando haya</a>'
+          : '<button class="add" type="button">' + ADD_HTML + "</button>");
+      var stockEl = $("[data-stock]", el), priceEl = $("[data-price]", el), addEl = $(".add", el), tt2;
+
       function draw() {
-        var queda = libre(p, op);
-        stockEl.className = "stock" + (op.stock === null || op.stock === undefined ? "" : queda <= 0 ? " out" : queda <= 3 ? " low" : "");
-        stockEl.textContent = op.stock === null || op.stock === undefined ? "" : op.stock <= 0 ? "· Agotado" : queda <= 0 ? "· Ya tienes todas las disponibles" : queda <= 3 ? "· Quedan " + queda : "";
-        rows.innerHTML = "";
-        C.meses.forEach(function (m) {
-          var full = op.precio * m.meses, price = priceOf(op, m.meses);
-          var r = document.createElement("div"); r.className = "row" + (queda <= 0 ? " out" : "");
-          r.innerHTML = '<div class="row-l"><span>' + mesTxt(m.meses) + (m.descuento ? '<em class="save">−' + pct(m.descuento) + "</em>" : "") + "</span>" +
-            "<strong>" + money(price) + "</strong>" + (m.descuento ? "<s>" + money(full) + "</s>" : "") + "</div>";
-          var b = document.createElement("button");
-          b.type = "button"; b.className = "add"; b.disabled = queda <= 0;
-          b.setAttribute("aria-label", (queda <= 0 ? "Agotado: " : "Agregar ") + p.nombre + ", " + op.nombre + " por " + mesTxt(m.meses) + ", " + money(price));
-          b.innerHTML = '<svg><use href="#i-plus"/></svg>';
-          b.addEventListener("click", function () {
-            if (libre(p, op) <= 0) return;
-            add(p.id + ":" + op.id + ":" + m.meses, 1);
-            toast(p.nombre + " · " + op.nombre + " · " + mesTxt(m.meses) + " agregado");
-          });
-          r.appendChild(b); rows.appendChild(r);
-        });
+        var queda = libre(p, op), m = mesesBy[mesesSel];
+        var full = op.precio * mesesSel, price = priceOf(op, mesesSel);
+        priceEl.innerHTML = "<b>" + money(price) + "</b>" +
+          (m.descuento ? "<s>" + money(full) + '</s><em class="save">−' + pct(m.descuento) + "</em>" : "") +
+          "<span>" + (mesesSel === 1 ? "por 1 mes" : mesTxt(mesesSel) + " · " + money(price / mesesSel) + " al mes") + "</span>";
+        var sinLimite = op.stock === null || op.stock === undefined;
+        stockEl.className = "stock" + (queda <= 0 ? " out" : queda <= 3 ? " low" : "");
+        stockEl.textContent = sinLimite ? "Disponible"
+          : op.stock <= 0 ? "Agotado"
+          : queda <= 0 ? "Ya tienes todas las disponibles"
+          : queda <= 3 ? "Quedan " + queda
+          : queda + " disponibles";
+        if (addEl) {
+          addEl.disabled = queda <= 0;
+          addEl.setAttribute("aria-label", (queda <= 0 ? "Agotado: " : "Agregar ") + p.nombre + ", " + op.nombre + ", " + mesTxt(mesesSel) + ", " + money(price));
+        }
       }
+      if (addEl) addEl.addEventListener("click", function () {
+        if (libre(p, op) <= 0) return;
+        add(p.id + ":" + op.id + ":" + mesesSel, 1);
+        addEl.classList.add("ok");
+        addEl.innerHTML = '<svg><use href="#i-check"/></svg>Agregado';
+        clearTimeout(tt2);
+        tt2 = setTimeout(function () { addEl.classList.remove("ok"); addEl.innerHTML = ADD_HTML; }, 1200);
+        toast(p.nombre + " · " + op.nombre + " · " + mesTxt(mesesSel) + " agregado");
+      });
+      var img = $(".prod-logo", el);
+      if (img) img.addEventListener("error", function () {
+        el.classList.remove("con-logo");
+        img.outerHTML = '<span class="dot" aria-hidden="true"></span>';
+      });
       $$(".seg button", el).forEach(function (b) {
         b.addEventListener("click", function () {
           op = opOf(p, b.dataset.o);
@@ -140,8 +198,9 @@
       return el;
     }
 
-    /* search + category filter */
+    /* búsqueda + categorías */
     var filtro = "todo";
+    function marcarChip(f) { $$(".chip", chips).forEach(function (o) { o.setAttribute("aria-pressed", o.dataset.f === f); }); }
     function applyFilter() {
       var q = $("#q").value.trim().toLowerCase(), total = 0;
       sections.forEach(function (sec) {
@@ -150,19 +209,34 @@
           var ok = !q || c.dataset.name.indexOf(q) > -1;
           c.hidden = !ok; if (ok) { shown++; c.classList.add("in"); }
         });
+        /* buscando se muestran también los agotados, para no esconder lo que el visitante pidió */
+        if (sec.dataset.plegable) {
+          var fold = $(".fold", sec);
+          if (q) { sec.classList.remove("plegada"); if (fold) fold.hidden = true; }
+          else { sec.classList.toggle("plegada", sec.dataset.plegada === "1"); if (fold) fold.hidden = false; }
+        }
         sec.hidden = !shown || (filtro !== "todo" && sec.dataset.cat !== filtro);
         if (!sec.hidden) total += shown;
       });
       $("#empty-grid").style.display = total ? "none" : "block";
     }
-    $("#q").addEventListener("input", applyFilter);
+    /* al escribir, la búsqueda sale de la categoría: antes quedaba atrapada y no encontraba nada */
+    $("#q").addEventListener("input", function () {
+      if ($("#q").value.trim() && filtro !== "todo") { filtro = "todo"; marcarChip("todo"); }
+      applyFilter();
+    });
+    var chipsWrap = chips.parentNode;
     $$(".chip", chips).forEach(function (ch) {
       ch.addEventListener("click", function () {
         filtro = ch.dataset.f;
-        $$(".chip", chips).forEach(function (o) { o.setAttribute("aria-pressed", o === ch); });
+        marcarChip(filtro);
         applyFilter();
-        var top = $("#chips").getBoundingClientRect().top + window.scrollY - 90;
-        if (window.scrollY > top) window.scrollTo({ top: top });
+        /* sube a la primera categoría visible, nunca empuja al visitante hacia abajo */
+        var vis = sections.filter(function (s) { return !s.hidden; })[0];
+        if (!vis) return;
+        var off = chipsWrap.getBoundingClientRect().height + 80;
+        var y = Math.max(0, vis.getBoundingClientRect().top + window.scrollY - off);
+        if (y < window.scrollY) window.scrollTo({ top: y });
       });
     });
 
