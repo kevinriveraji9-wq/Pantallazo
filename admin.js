@@ -272,14 +272,14 @@
   var editing = -1, mOps = [];
   function openModal(i) {
     editing = i;
-    var p = i > -1 ? clone(draft.productos[i]) : { nombre: "", categoria: draft.categorias[0].id, color: "#FF6B5A", nota: "", popular: false, activo: true, opciones: [{ id: "", nombre: "Cuenta individual", precio: 0, stock: 0 }] };
+    var p = i > -1 ? clone(draft.productos[i]) : { nombre: "", categoria: draft.categorias[0].id, color: "#25D366", nota: "", popular: false, activo: true, opciones: [{ id: "", nombre: "Cuenta individual", precio: 0, stock: 0 }] };
     $("#m-title").textContent = i > -1 ? "Editar " + p.nombre : "Nuevo producto";
     $("#m-nombre").value = p.nombre;
     $("#m-cat").innerHTML = draft.categorias.map(function (c) { return '<option value="' + esc(c.id) + '">' + esc(c.nombre) + "</option>"; }).join("");
     $("#m-cat").value = p.categoria;
     $("#m-nota").value = p.nota || "";
     $("#m-logo").value = p.logo || "";
-    $("#m-color").value = /^#[0-9a-f]{6}$/i.test(p.color) ? p.color : "#FF6B5A";
+    $("#m-color").value = /^#[0-9a-f]{6}$/i.test(p.color) ? p.color : "#25D366";
     $("#m-pop").checked = !!p.popular; $("#m-act").checked = p.activo !== false;
     $("#m-del").hidden = i < 0;
     $("#m-err").textContent = "";
