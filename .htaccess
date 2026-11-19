@@ -10,10 +10,13 @@ SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Forzar HTTPS (activo desde que el certificado de pantallazo.site quedó instalado)
-  RewriteCond %{HTTPS} off
-  RewriteCond %{HTTP:X-Forwarded-Proto} !https
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Forzar HTTPS.
+  # En DonWeb esto ya lo hace el .htaccess de la raíz (así la dirección queda limpia),
+  # por eso aquí va desactivado. En otro hosting donde la tienda esté sola en la raíz,
+  # quita el # de las tres líneas cuando el certificado SSL esté activo.
+  # RewriteCond %{HTTPS} off
+  # RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # /admin abre el panel
   RewriteRule ^admin/?$ admin.html [L]
