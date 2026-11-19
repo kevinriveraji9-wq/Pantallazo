@@ -10,9 +10,10 @@ SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # Forzar HTTPS (quita el # de las dos líneas cuando el certificado SSL esté activo)
-  # RewriteCond %{HTTPS} off
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Forzar HTTPS (activo desde que el certificado de pantallazo.site quedó instalado)
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # /admin abre el panel
   RewriteRule ^admin/?$ admin.html [L]
