@@ -1,0 +1,373 @@
+{
+  "negocio": "Pantallazo",
+  "whatsapp": "573000000000",
+  "whatsappVisible": "+57 300 000 0000",
+  "horario": "Todos los días, 8:00 a. m. a 10:00 p. m.",
+  "locale": "es-CO",
+  "moneda": "COP",
+  "comboDescuento": 0.1,
+  "meses": [
+    {
+      "meses": 1,
+      "descuento": 0
+    },
+    {
+      "meses": 3,
+      "descuento": 0.05
+    },
+    {
+      "meses": 6,
+      "descuento": 0.1
+    }
+  ],
+  "categorias": [
+    {
+      "id": "series",
+      "nombre": "Series y películas"
+    },
+    {
+      "id": "tv",
+      "nombre": "TV en vivo y deportes"
+    },
+    {
+      "id": "musica",
+      "nombre": "Música"
+    },
+    {
+      "id": "diseno",
+      "nombre": "Diseño y edición"
+    },
+    {
+      "id": "ia",
+      "nombre": "Inteligencia artificial"
+    },
+    {
+      "id": "educacion",
+      "nombre": "Educación"
+    }
+  ],
+  "productos": [
+    {
+      "id": "netflix",
+      "nombre": "Netflix",
+      "categoria": "series",
+      "color": "#E50914",
+      "nota": "Cuenta completa: 4 perfiles",
+      "popular": true,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 16000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 52000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "disney",
+      "nombre": "Disney+",
+      "categoria": "series",
+      "color": "#113CCF",
+      "nota": "Cuenta completa: 4 perfiles",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 10000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 30000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "max",
+      "nombre": "Max",
+      "categoria": "series",
+      "color": "#002BE7",
+      "nota": "Cuenta completa: 3 perfiles",
+      "popular": true,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 9000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 26000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "prime",
+      "nombre": "Prime Video",
+      "categoria": "series",
+      "color": "#00A8E1",
+      "nota": "Cuenta completa: 3 perfiles",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 8000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 22000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "paramount",
+      "nombre": "Paramount+",
+      "categoria": "series",
+      "color": "#0064FF",
+      "nota": "Cuenta completa: 3 perfiles",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 7000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 19000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "universal",
+      "nombre": "Universal+",
+      "categoria": "series",
+      "color": "#5B3FD9",
+      "nota": "Cuenta completa: 4 perfiles",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 7000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 18000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "crunchyroll",
+      "nombre": "Crunchyroll",
+      "categoria": "series",
+      "color": "#F47521",
+      "nota": "Cuenta completa: 4 perfiles",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 7000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 18000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "dgo",
+      "nombre": "DGO",
+      "categoria": "tv",
+      "color": "#00A6EB",
+      "nota": "Canales en vivo y deportes",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "pantalla",
+          "nombre": "Pantalla",
+          "precio": 15000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta completa",
+          "precio": 45000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "spotify",
+      "nombre": "Spotify Premium",
+      "categoria": "musica",
+      "color": "#1DB954",
+      "nota": "Cuenta individual a tu nombre",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta individual",
+          "precio": 11000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "youtube",
+      "nombre": "YouTube Premium",
+      "categoria": "musica",
+      "color": "#FF0033",
+      "nota": "Sin anuncios y con YouTube Music",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta individual",
+          "precio": 12000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "canva",
+      "nombre": "Canva Pro",
+      "categoria": "diseno",
+      "color": "#00C4CC",
+      "nota": "Se activa en tu propio correo",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta individual",
+          "precio": 9000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "capcut",
+      "nombre": "CapCut Pro",
+      "categoria": "diseno",
+      "color": "#E6E6E6",
+      "nota": "Edición de video sin marca de agua",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta individual",
+          "precio": 12000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "gemini",
+      "nombre": "Gemini 3 Pro",
+      "categoria": "ia",
+      "color": "#4285F4",
+      "nota": "Plan Google AI Pro con Gemini 3 Pro",
+      "popular": true,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cupo",
+          "nombre": "Cupo familiar",
+          "precio": 15000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Cuenta individual",
+          "precio": 25000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    },
+    {
+      "id": "duolingo",
+      "nombre": "Duolingo Super",
+      "categoria": "educacion",
+      "color": "#58CC02",
+      "nota": "Sin anuncios y con vidas ilimitadas",
+      "popular": false,
+      "activo": true,
+      "opciones": [
+        {
+          "id": "cupo",
+          "nombre": "Cupo familiar",
+          "precio": 6000,
+          "stock": 0,
+          "tipo": "perfil"
+        },
+        {
+          "id": "cuenta",
+          "nombre": "Plan familiar completo",
+          "precio": 28000,
+          "stock": 0,
+          "tipo": "cuenta"
+        }
+      ]
+    }
+  ]
+}

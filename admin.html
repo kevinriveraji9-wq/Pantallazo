@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin · Pantallazo</title>
+<link rel="icon" type="image/svg+xml" href="marca/pantallazo-icono.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0b10; --bg-2:#111119; --card:#16161f; --card-2:#1d1d28; --line:#2a2a37;
+  --text:#f4f4f7; --muted:#a3a3b2; --soft:#6e6e80;
+  --y:#FFC83D; --y-hover:#ffd666; --y-ink:#1a1300;
+  --ok:#3ddc84; --hot:#ff4d64; --r:16px;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--y);outline-offset:2px;border-radius:8px}
+[hidden]{display:none !important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+svg{display:block}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;border:0;font-weight:700;background:var(--card-2);transition:background-color .15s,transform .1s}
+.btn:hover{background:#272735}
+.btn:active{transform:scale(.97)}
+.btn.y{background:var(--y);color:var(--y-ink)}
+.btn.y:hover{background:var(--y-hover)}
+.btn.ghost{background:transparent;color:var(--muted)}
+.btn.ghost:hover{color:var(--text);background:var(--card-2)}
+.btn.danger{background:rgba(255,77,100,.12);color:var(--hot)}
+.btn.danger:hover{background:rgba(255,77,100,.2)}
+.btn.sm{height:34px;padding:0 12px;font-size:13px}
+.btn svg{width:18px;height:18px}
+.icon-btn{width:36px;height:36px;border-radius:10px;border:0;background:var(--card-2);display:grid;place-items:center;font-weight:800;font-size:18px;line-height:1}
+.icon-btn:hover{background:#2c2c3a}
+.icon-btn:disabled{opacity:.35;cursor:not-allowed}
+
+input[type=text],input[type=number],input[type=password],input[type=search],select{height:42px;border-radius:10px;border:1px solid var(--line);background:var(--bg-2);padding:0 12px;outline:none;min-width:0}
+input:focus,select:focus{border-color:var(--y)}
+input[type=number]{-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
+input[type=color]{width:42px;height:42px;border:1px solid var(--line);border-radius:10px;background:var(--bg-2);padding:4px}
+label.f{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;color:var(--muted)}
+label.f input,label.f select{color:var(--text);font-size:15px;font-weight:500}
+.check{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;cursor:pointer}
+.check input{width:18px;height:18px;accent-color:var(--y)}
+
+/* switch */
+.sw{position:relative;width:42px;height:24px;flex:none}
+.sw input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer}
+.sw span{position:absolute;inset:0;border-radius:999px;background:var(--line);transition:background-color .2s;pointer-events:none}
+.sw span::after{content:"";position:absolute;left:3px;top:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:transform .2s}
+.sw input:checked+span{background:var(--ok)}
+.sw input:checked+span::after{transform:translateX(18px)}
+.sw input:focus-visible+span{outline:3px solid var(--y);outline-offset:2px}
+
+/* login */
+.login{min-height:100svh;display:grid;place-items:center;padding:20px}
+.login form{width:min(380px,100%);background:var(--card);border-radius:22px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.login h1{font-size:24px;font-weight:800;letter-spacing:-.02em}
+.login p{color:var(--muted);font-size:14px}
+.err{color:var(--hot);font-size:14px;font-weight:600;min-height:1.2em}
+
+/* layout */
+.top{position:sticky;top:0;z-index:20;background:rgba(11,11,16,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .in{max-width:1240px;margin:0 auto;padding:0 20px;height:64px;display:flex;align-items:center;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.02em;text-decoration:none}
+.logo svg{width:34px;height:34px}
+.logo small{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:0;margin-left:2px}
+.top .sp{flex:1}
+main{max-width:1240px;margin:0 auto;padding:24px 20px 140px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px}
+.stat{background:var(--card);border-radius:var(--r);padding:16px 18px}
+.stat span{font-size:13px;font-weight:600;color:var(--muted)}
+.stat b{display:block;font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-top:4px}
+.stat.warn b{color:var(--y)}
+.stat.bad b{color:var(--hot)}
+
+.tabs{display:flex;gap:6px;margin-bottom:20px;overflow-x:auto;scrollbar-width:none}
+.tab{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;font-weight:700;color:var(--muted);white-space:nowrap}
+.tab:hover{color:var(--text)}
+.tab[aria-selected=true]{background:var(--y);border-color:var(--y);color:var(--y-ink)}
+
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+.toolbar input[type=search]{flex:1 1 240px;border-radius:999px;padding-left:16px}
+.toolbar select{border-radius:999px}
+
+/* inventory */
+.cat-title{display:flex;align-items:baseline;gap:10px;margin:28px 0 10px}
+.cat-title h2{font-size:18px;font-weight:800;letter-spacing:-.02em}
+.cat-title span{color:var(--soft);font-size:13px;font-weight:600}
+.pblock{background:var(--card);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
+.pblock.off{opacity:.55}
+.phead{display:flex;align-items:center;gap:12px;padding:12px 14px 12px 16px;background:var(--card-2)}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.pname{font-weight:800;font-size:16px;flex:1;min-width:0}
+.pname small{font-weight:600;color:var(--muted);font-size:13px;margin-left:8px}
+.badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+.b-ok{background:rgba(61,220,132,.12);color:var(--ok)}
+.b-low{background:rgba(255,200,61,.14);color:var(--y)}
+.b-out{background:rgba(255,77,100,.14);color:var(--hot)}
+.b-inf{background:var(--card-2);color:var(--muted)}
+.b-pop{background:var(--y);color:var(--y-ink)}
+.orow{display:grid;grid-template-columns:minmax(120px,1.4fr) 150px 210px 110px;gap:14px;align-items:center;padding:10px 16px}
+.orow+.orow{border-top:1px solid var(--line)}
+.oname{font-weight:600}
+.money{position:relative}
+.money span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--soft);font-weight:600}
+.money input{width:100%;padding-left:24px;text-align:right}
+.stepper{display:flex;align-items:center;gap:6px}
+.stepper input{width:76px;text-align:center;font-weight:800}
+.stepper .inf{width:76px;height:42px;display:grid;place-items:center;color:var(--muted);font-size:13px;font-weight:600;border:1px dashed var(--line);border-radius:10px}
+.colhead{display:grid;grid-template-columns:minmax(120px,1.4fr) 150px 210px 110px;gap:14px;padding:0 16px 6px;font-size:12px;font-weight:700;color:var(--soft)}
+.empty{padding:48px 20px;text-align:center;color:var(--muted);background:var(--card);border-radius:var(--r)}
+
+/* products tab */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.pcard{background:var(--card);border-radius:var(--r);padding:16px;display:flex;flex-direction:column;gap:10px;border-top:4px solid var(--pc,var(--y))}
+.pcard h3{font-size:17px;font-weight:800;display:flex;align-items:center;gap:8px}
+.pcard p{color:var(--muted);font-size:13px}
+.pcard .acts{display:flex;gap:6px;margin-top:auto;flex-wrap:wrap}
+.ops{display:flex;flex-direction:column;gap:4px;font-size:13px}
+.ops div{display:flex;justify-content:space-between;gap:8px}
+.ops b{font-weight:700}
+
+/* categories + settings */
+.list{display:flex;flex-direction:column;gap:8px;max-width:760px}
+.lrow{display:flex;align-items:center;gap:10px;background:var(--card);border-radius:12px;padding:10px 12px}
+.lrow input[type=text]{flex:1}
+.lrow .cnt{color:var(--muted);font-size:13px;font-weight:600;white-space:nowrap;min-width:92px}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px}
+.form .full{grid-column:1/-1}
+.panel{background:var(--card);border-radius:var(--r);padding:20px;max-width:760px;margin-bottom:16px}
+.panel h2{font-size:17px;font-weight:800;margin-bottom:14px}
+.hint{color:var(--soft);font-size:13px;margin-top:6px}
+
+/* modal */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.65);display:grid;place-items:center;padding:16px}
+.modal{width:min(680px,100%);max-height:calc(100svh - 32px);overflow:auto;background:var(--bg-2);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:16px}
+.modal-h{display:flex;justify-content:space-between;align-items:center}
+.modal-h h2{font-size:20px;font-weight:800}
+.opedit{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,.8fr) auto auto;gap:8px;align-items:end;background:var(--card);border-radius:12px;padding:10px}
+.opedit input[type=text],.opedit input[type=number]{width:100%}
+.check input[type=color]{width:44px;height:34px;padding:3px}
+.modal{overflow-x:hidden}
+.modal-f{display:flex;justify-content:flex-end;gap:8px;position:sticky;bottom:-24px;background:var(--bg-2);padding:12px 0 0}
+
+/* accounts */
+.acc{background:var(--card);border-radius:var(--r);margin-bottom:12px;overflow:hidden}
+.acc-h{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;padding:12px 14px;background:var(--card-2)}
+.acc-h .pname{flex:0 1 auto}
+.acc-h .sp{flex:1}
+.cred{display:inline-flex;align-items:center;gap:4px;background:var(--bg-2);border-radius:10px;padding:3px 3px 3px 10px;font-size:13px;font-weight:600;max-width:100%;min-width:0}
+.cred span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:240px}
+.cred i{font-style:normal;color:var(--soft);font-weight:600;margin-right:2px}
+.mini{height:28px;padding:0 9px;border-radius:8px;border:0;background:var(--card-2);font-size:12px;font-weight:700;color:var(--muted)}
+.mini:hover{color:var(--text);background:#2c2c3a}
+.profs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;padding:12px}
+.prof{background:var(--bg-2);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:4px;box-shadow:inset 4px 0 0 var(--line)}
+.prof.libre{box-shadow:inset 4px 0 0 var(--ok)}
+.prof.vendido{box-shadow:inset 4px 0 0 var(--y)}
+.prof.vencido{box-shadow:inset 4px 0 0 var(--hot)}
+.prof b{font-size:14px}
+.prof small{color:var(--muted);font-size:13px;line-height:1.35}
+.prof .acts{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.acc-full{margin:12px 12px 0;padding:12px 14px;border-radius:12px;background:rgba(255,200,61,.1);display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font-weight:600}
+.acc-full .acts{display:flex;gap:6px;flex-wrap:wrap;margin-left:auto}
+.acc-notes{padding:0 14px 12px;color:var(--soft);font-size:13px}
+.auto{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 12px;border-radius:10px;background:rgba(61,220,132,.08);color:var(--ok);font-weight:700;font-size:13px}
+.opedit select{height:42px}
+
+.imp-sum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}
+.imp-sum div{background:var(--card);border-radius:12px;padding:10px 12px;font-size:12px;font-weight:600;color:var(--muted)}
+.imp-sum b{display:block;font-size:22px;color:var(--text)}
+.imp-errs{background:rgba(255,77,100,.08);border-radius:12px;padding:10px 14px;color:var(--hot);font-size:13px;max-height:160px;overflow:auto}
+.imp-errs li{margin:2px 0}
+.imp-ok{background:rgba(61,220,132,.08);border-radius:12px;padding:10px 14px;color:var(--ok);font-size:13px;font-weight:600}
+@media (max-width:860px){.imp-sum{grid-template-columns:1fr 1fr}}
+
+/* save bar */
+.savebar{position:fixed;left:50%;bottom:20px;z-index:40;transform:translate(-50%,150%);transition:transform .3s cubic-bezier(.2,.7,.2,1);display:flex;align-items:center;gap:12px;background:var(--text);color:var(--bg);padding:8px 8px 8px 20px;border-radius:999px;font-weight:700;box-shadow:0 20px 50px -15px rgba(0,0,0,.8);width:max-content;max-width:calc(100% - 24px)}
+.savebar.show{transform:translate(-50%,0)}
+.savebar .btn.ghost{color:#55556a}
+.savebar .btn.ghost:hover{background:#e3e3ea;color:var(--bg)}
+.toast{position:fixed;left:50%;top:80px;z-index:60;transform:translate(-50%,-10px);opacity:0;background:var(--card-2);color:var(--text);padding:12px 18px;border-radius:999px;font-weight:700;font-size:14px;transition:opacity .2s,transform .2s;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.bad{background:var(--hot);color:#fff}
+
+@media (max-width:860px){
+  .stats{grid-template-columns:1fr 1fr}
+  .colhead{display:none}
+  .orow{grid-template-columns:1fr 1fr;gap:10px}
+  .orow .oname{grid-column:1/-1}
+  .opedit{grid-template-columns:1fr 1fr}
+  .opedit label.f:first-child{grid-column:1/-1}
+  .form{grid-template-columns:1fr}
+  .top .hide-m{display:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-logo" viewBox="0 0 48 48"><rect x="3" y="7" width="42" height="30" rx="7" fill="#FFC83D"/><path d="M26.5 11 16 25h7l-2 9 11-14h-7.2l1.7-9Z" fill="#0b0b10"/><rect x="16" y="40" width="16" height="4" rx="2" fill="#FFC83D"/></symbol>
+</svg>
+
+<section class="login" id="login">
+  <form id="login-form" autocomplete="on">
+    <svg width="48" height="48" viewBox="0 0 48 48"><use href="#i-logo"/></svg>
+    <div><h1>Panel de inventario</h1><p>Entra con la clave de administrador.</p></div>
+    <label class="f"><span>Clave</span><input type="password" id="pass" autocomplete="current-password" required></label>
+    <p class="err" id="login-err" role="alert"></p>
+    <button class="btn y" type="submit">Entrar</button>
+  </form>
+</section>
+
+<div id="app" hidden>
+  <header class="top">
+    <div class="in">
+      <a class="logo" href="/" target="_blank" rel="noopener"><svg viewBox="0 0 48 48"><use href="#i-logo"/></svg><span id="biz">Pantallazo</span><small class="hide-m">Admin</small></a>
+      <span class="sp"></span>
+      <a class="btn ghost sm" href="/" target="_blank" rel="noopener">Ver tienda</a>
+      <button class="btn sm" type="button" id="logout">Salir</button>
+    </div>
+  </header>
+  <main>
+    <div class="stats" id="stats"></div>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" data-tab="inv" aria-selected="true">Inventario</button>
+      <button class="tab" role="tab" data-tab="acc" aria-selected="false">Cuentas y perfiles</button>
+      <button class="tab" role="tab" data-tab="prod" aria-selected="false">Productos</button>
+      <button class="tab" role="tab" data-tab="cat" aria-selected="false">Categorías</button>
+      <button class="tab" role="tab" data-tab="cfg" aria-selected="false">Ajustes</button>
+    </div>
+
+    <section data-panel="inv">
+      <div class="toolbar">
+        <input type="search" id="inv-q" placeholder="Buscar producto…" aria-label="Buscar producto">
+        <select id="inv-cat" aria-label="Categoría"></select>
+        <select id="inv-st" aria-label="Estado">
+          <option value="all">Todos los estados</option>
+          <option value="low">Stock bajo (3 o menos)</option>
+          <option value="out">Agotados</option>
+          <option value="off">Ocultos en la tienda</option>
+        </select>
+      </div>
+      <div id="inv"></div>
+    </section>
+
+    <section data-panel="acc" hidden>
+      <div class="stats" id="acc-stats"></div>
+      <div class="toolbar">
+        <input type="search" id="acc-q" placeholder="Buscar correo, cliente o teléfono…" aria-label="Buscar cuenta">
+        <select id="acc-prod" aria-label="Producto"></select>
+        <select id="acc-st" aria-label="Filtro">
+          <option value="all">Todas las cuentas</option>
+          <option value="libres">Con perfiles libres</option>
+          <option value="porvencer">Clientes por vencer (3 días)</option>
+          <option value="vencidos">Clientes vencidos</option>
+          <option value="cuentavence">Cuenta por renovar (5 días)</option>
+        </select>
+        <button class="btn y" type="button" id="new-acc">+ Nueva cuenta</button>
+        <button class="btn" type="button" id="imp-open">Importar desde Excel</button>
+        <button class="btn ghost" type="button" id="exp-csv">Exportar</button>
+      </div>
+      <p class="hint" style="margin:-6px 0 14px">Los cambios en cuentas se guardan al instante. Las opciones de venta con stock automático cuentan los perfiles y cuentas libres de aquí.</p>
+      <div id="accs"></div>
+    </section>
+
+    <section data-panel="prod" hidden>
+      <div class="toolbar"><input type="search" id="prod-q" placeholder="Buscar producto…" aria-label="Buscar producto"><button class="btn y" type="button" id="new-prod">+ Nuevo producto</button></div>
+      <div id="prods"></div>
+    </section>
+
+    <section data-panel="cat" hidden>
+      <div class="toolbar"><button class="btn y" type="button" id="new-cat">+ Nueva categoría</button></div>
+      <div class="list" id="cats"></div>
+      <p class="hint">El orden de esta lista es el orden en que aparecen las categorías en la tienda. Para borrar una categoría, primero mueve o elimina sus productos.</p>
+    </section>
+
+    <section data-panel="cfg" hidden>
+      <div class="panel">
+        <h2>Negocio y WhatsApp</h2>
+        <div class="form">
+          <label class="f"><span>Nombre del negocio</span><input type="text" data-cfg="negocio"></label>
+          <label class="f"><span>Horario de atención</span><input type="text" data-cfg="horario"></label>
+          <label class="f"><span>WhatsApp (código de país + número, solo dígitos)</span><input type="text" inputmode="numeric" data-cfg="whatsapp"></label>
+          <label class="f"><span>WhatsApp como se muestra</span><input type="text" data-cfg="whatsappVisible"></label>
+          <label class="f"><span>Moneda (código ISO)</span><input type="text" data-cfg="moneda" maxlength="3"></label>
+          <label class="f"><span>Formato regional</span><input type="text" data-cfg="locale" maxlength="5"></label>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Descuentos</h2>
+        <div class="form">
+          <label class="f full"><span>Descuento combo por llevar 2 o más plataformas (%)</span><input type="number" min="0" max="90" step="1" id="combo"></label>
+        </div>
+        <h2 style="margin-top:20px">Duraciones</h2>
+        <div class="list" id="meses"></div>
+        <button class="btn sm" type="button" id="add-mes" style="margin-top:10px">+ Agregar duración</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="savebar" id="savebar" role="region" aria-label="Cambios sin guardar">
+    <span id="savebar-t">Tienes cambios sin guardar</span>
+    <button class="btn ghost sm" type="button" id="discard">Descartar</button>
+    <button class="btn y" type="button" id="save">Guardar cambios</button>
+  </div>
+</div>
+
+<div class="scrim" id="modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="modal-h"><h2 id="m-title">Producto</h2><button class="icon-btn" type="button" data-close aria-label="Cerrar">×</button></div>
+    <div class="form" style="max-width:none">
+      <label class="f"><span>Nombre</span><input type="text" id="m-nombre" maxlength="50"></label>
+      <label class="f"><span>Categoría</span><select id="m-cat"></select></label>
+      <label class="f full"><span>Descripción corta</span><input type="text" id="m-nota" maxlength="80" placeholder="Cuenta completa: 4 perfiles"></label>
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap" class="full">
+        <label class="check"><input type="color" id="m-color"> Color de la plataforma</label>
+        <label class="check"><input type="checkbox" id="m-pop"> Marcar como «Más pedido»</label>
+        <label class="check"><input type="checkbox" id="m-act"> Visible en la tienda</label>
+      </div>
+    </div>
+    <div>
+      <h3 style="font-size:15px;font-weight:800;margin-bottom:4px">Opciones de venta</h3>
+      <p class="hint" style="margin:0 0 10px">Precio por mes. En «Stock» elige si lo cuentas a mano o si sale solo de tus cuentas: «Perfiles libres» para pantallas o cupos, «Cuentas libres» para cuentas completas.</p>
+      <div id="m-ops" style="display:flex;flex-direction:column;gap:8px"></div>
+      <button class="btn sm" type="button" id="m-add-op" style="margin-top:10px">+ Agregar opción</button>
+    </div>
+    <p class="err" id="m-err" role="alert"></p>
+    <div class="modal-f">
+      <button class="btn danger" type="button" id="m-del" style="margin-right:auto">Eliminar producto</button>
+      <button class="btn ghost" type="button" data-close>Cancelar</button>
+      <button class="btn y" type="button" id="m-ok">Aplicar</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="acc-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="a-title" style="width:min(560px,100%)">
+    <div class="modal-h"><h2 id="a-title">Nueva cuenta</h2><button class="icon-btn" type="button" data-close aria-label="Cerrar">×</button></div>
+    <div class="form" style="max-width:none">
+      <label class="f full"><span>Producto</span><select id="a-prod"></select></label>
+      <label class="f"><span>Correo de la cuenta</span><input type="text" id="a-correo" maxlength="120" autocomplete="off"></label>
+      <label class="f"><span>Clave de la cuenta</span><input type="text" id="a-clave" maxlength="120" autocomplete="off"></label>
+      <label class="f"><span>Número de perfiles</span><input type="number" id="a-n" min="1" max="20" step="1"></label>
+      <label class="f"><span>La cuenta vence (tu pago al proveedor)</span><input type="date" id="a-vence"></label>
+      <label class="f"><span>Costo de la cuenta (opcional)</span><input type="number" id="a-costo" min="0" step="500"></label>
+      <label class="f full"><span>Notas (opcional)</span><input type="text" id="a-notas" maxlength="300" placeholder="Proveedor, método de pago…"></label>
+    </div>
+    <p class="err" id="a-err" role="alert"></p>
+    <div class="modal-f">
+      <button class="btn danger" type="button" id="a-del" style="margin-right:auto">Eliminar cuenta</button>
+      <button class="btn ghost" type="button" data-close>Cancelar</button>
+      <button class="btn y" type="button" id="a-ok">Guardar cuenta</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="sell-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="s-title" style="width:min(520px,100%)">
+    <div class="modal-h"><h2 id="s-title">Vender perfil</h2><button class="icon-btn" type="button" data-close aria-label="Cerrar">×</button></div>
+    <p class="hint" id="s-sub" style="margin:0"></p>
+    <div class="form" style="max-width:none">
+      <label class="f"><span>Cliente</span><input type="text" id="s-cliente" maxlength="60" autocomplete="off"></label>
+      <label class="f"><span>WhatsApp del cliente</span><input type="text" id="s-tel" inputmode="numeric" maxlength="15" placeholder="573001234567" autocomplete="off"></label>
+      <label class="f" id="s-perfil-w"><span>Nombre del perfil</span><input type="text" id="s-perfil" maxlength="30"></label>
+      <label class="f" id="s-pin-w"><span>PIN del perfil</span><input type="text" id="s-pin" maxlength="10" inputmode="numeric" autocomplete="off"></label>
+      <label class="f"><span>Duración</span><select id="s-meses"></select></label>
+      <label class="f"><span>Precio cobrado</span><input type="number" id="s-precio" min="0" step="500"></label>
+      <p class="full hint" id="s-vence" style="margin:0;color:var(--text);font-weight:600"></p>
+    </div>
+    <p class="err" id="s-err" role="alert"></p>
+    <div class="modal-f">
+      <button class="btn ghost" type="button" data-close>Cancelar</button>
+      <button class="btn y" type="button" id="s-ok">Registrar venta</button>
+    </div>
+  </div>
+</div>
+
+<div class="scrim" id="imp-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="i-title" style="width:min(760px,100%)">
+    <div class="modal-h"><h2 id="i-title">Importar inventario</h2><button class="icon-btn" type="button" data-close aria-label="Cerrar">×</button></div>
+    <div class="panel" style="margin:0;max-width:none;padding:16px">
+      <p style="font-weight:700;margin-bottom:6px">Cómo hacerlo</p>
+      <p class="hint" style="margin:0">1. Descarga la plantilla y ábrela en Excel o Google Sheets. 2. Llena una fila por cuenta (o una por perfil vendido). 3. Guárdala como CSV y súbela aquí, o copia las filas en Excel y pégalas abajo.</p>
+      <button class="btn sm y" type="button" id="imp-tpl" style="margin-top:12px">Descargar plantilla</button>
+    </div>
+    <label class="f"><span>Archivo CSV</span><input type="file" id="imp-file" accept=".csv,.txt,.tsv,text/csv"></label>
+    <label class="f"><span>O pega aquí las filas copiadas de Excel (con la fila de títulos)</span><textarea id="imp-text" rows="6" style="border-radius:10px;border:1px solid var(--line);background:var(--bg-2);padding:10px 12px;color:var(--text);font:inherit;font-size:13px;resize:vertical"></textarea></label>
+    <label class="check"><input type="checkbox" id="imp-replace" checked> Si ya existe una cuenta con el mismo producto y correo, reemplazarla</label>
+    <div id="imp-prev"></div>
+    <div class="modal-f">
+      <button class="btn ghost" type="button" data-close>Cancelar</button>
+      <button class="btn" type="button" id="imp-check">Revisar</button>
+      <button class="btn y" type="button" id="imp-ok" disabled>Importar</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="admin.js"></script>
+</body>
+</html>

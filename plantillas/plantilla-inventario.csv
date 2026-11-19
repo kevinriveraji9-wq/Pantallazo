@@ -1,0 +1,6 @@
+﻿producto;correo;clave;vence_cuenta;perfiles;cuenta_completa;perfil;pin;cliente;telefono;vence_cliente;precio;costo;notas
+Netflix;cuenta1@correo.com;ClaveDeLaCuenta;30/12/2026;4;;Perfil 1;1234;Ana Gómez;3001234567;18/12/2026;16000;45000;Proveedor A
+Netflix;cuenta1@correo.com;;;;;Perfil 2;5678;Luis Pérez;3109876543;25/12/2026;16000;;
+Disney+;cuenta2@correo.com;ClaveDeLaCuenta;15/01/2027;4;;;;;;;;30000;4 perfiles libres
+Max;cuenta3@correo.com;ClaveDeLaCuenta;10/01/2027;3;si;;;Familia Ruiz;3205551234;10/01/2027;26000;;Vendida completa
+Spotify Premium;cuenta4@correo.com;ClaveDeLaCuenta;05/01/2027;1;;;;;;;;;Cuenta individual libre

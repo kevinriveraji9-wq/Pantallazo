@@ -1,0 +1,13 @@
+# Datos privados: clave del panel, cuentas, clientes, sesiones y respaldos. Nunca subirlos a GitHub.
+config.php
+data/cuentas.json
+data/sesiones.json
+data/intentos.json
+data/respaldos/
+data/.lock
+data/*.tmp
+*.zip
+.env
+
+.claude/
+.taste-skill/

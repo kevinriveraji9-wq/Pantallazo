@@ -1,0 +1,43 @@
+# Pantallazo · reglas para Apache / LiteSpeed (DoWeb, cPanel)
+
+Options -Indexes
+DirectoryIndex index.html
+
+# Pasar el encabezado de sesión a PHP en hostings CGI/FPM
+SetEnvIf X-Token "(.+)" HTTP_X_TOKEN=$1
+SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Forzar HTTPS (quita el # de las dos líneas cuando el certificado SSL esté activo)
+  # RewriteCond %{HTTPS} off
+  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # /admin abre el panel
+  RewriteRule ^admin/?$ admin.html [L]
+
+  # Bloquear carpetas y archivos privados
+  RewriteRule ^(data|plantillas|version-anterior|\.git)(/|$) - [F,L]
+</IfModule>
+
+# Archivos que nunca deben verse desde el navegador
+<FilesMatch "^(config\.php|config\.ejemplo\.php|router\.php|.*\.(json|md|csv|lock|tmp|log|zip)|\.gitignore|\.htaccess)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "same-origin"
+  Header always set X-Frame-Options "DENY"
+  <FilesMatch "^admin\.(html|js)$">
+    Header set X-Robots-Tag "noindex, nofollow"
+    Header set Cache-Control "no-store"
+  </FilesMatch>
+</IfModule>
