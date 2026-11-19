@@ -18,11 +18,17 @@ if (!function_exists('mb_strtolower')) { function mb_strtolower($s) { return str
 function responder($code, $data) { http_response_code($code); echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); exit; }
 function fallar($code, $msg) { responder($code, ['error' => $msg]); }
 
-$CONFIG = __DIR__ . '/config.php';
-if (!is_file($CONFIG)) fallar(500, 'Falta el archivo config.php en el servidor. Cópialo desde config.ejemplo.php y pon tu clave.');
+/* config.php is looked for next to api.php, or (safer) in a "pantallazo-datos" folder outside the web root */
+$CONFIG = null;
+foreach ([__DIR__ . '/config.php', dirname(__DIR__) . '/pantallazo-datos/config.php', dirname(__DIR__, 2) . '/pantallazo-datos/config.php'] as $c) {
+  if (is_file($c)) { $CONFIG = $c; break; }
+}
+if (!$CONFIG) fallar(500, 'Falta el archivo config.php en el servidor. Cópialo desde config.ejemplo.php y pon tu clave.');
 require $CONFIG;
 
-$DATA = rtrim(defined('DATA_DIR') && DATA_DIR ? DATA_DIR : __DIR__ . '/data', '/\\');
+/* data folder: DATA_DIR, or the folder that holds config.php when it lives outside the web, or ./data */
+$porDefecto = basename(dirname($CONFIG)) === 'pantallazo-datos' ? dirname($CONFIG) : __DIR__ . '/data';
+$DATA = rtrim(defined('DATA_DIR') && DATA_DIR ? DATA_DIR : $porDefecto, '/\\');
 $CATALOGO = $DATA . '/catalogo.json';
 $CUENTAS = $DATA . '/cuentas.json';
 $SESIONES = $DATA . '/sesiones.json';

@@ -11,3 +11,4 @@ data/*.tmp
 
 .claude/
 .taste-skill/
+data/index.html
