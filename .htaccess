@@ -43,7 +43,7 @@ SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
   # La tienda cambia seguido: el navegador puede guardar los archivos,
   # pero debe preguntar al servidor si hay version nueva antes de usarlos.
   # Sin esto, al desplegar queda el HTML nuevo con el JS viejo.
-  <FilesMatch "\.(html|js|css)$">
+  <FilesMatch "\.(html|js|css|svg|png)$">
     Header set Cache-Control "no-cache"
   </FilesMatch>
   <FilesMatch "^admin\.(html|js)$">
