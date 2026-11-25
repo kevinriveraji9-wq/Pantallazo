@@ -22,7 +22,7 @@
   --bg:#07100c; --bg-2:#0d1a14; --card:#122219; --card-2:#1b2f23; --line:#27412f;
   --text:#eef7f1; --muted:#a7c0b2; --soft:#7e9889;
   --wa:#1DB954; --wa-dark:#169c47; --wa-ink:#04230f; --wa-hover:#27cf64;
-  --hot:#ff4d6d; --gold:#FFC83D; --ok:#8BE8AC;
+  --hot:#ff4d6d; --aviso:#ff8fa3; --oferta:#27cf64; --ok:#8BE8AC;
   --r:18px; --r-sm:12px;
   --m:clamp(16px,4vw,40px);
   --ease:cubic-bezier(.2,.7,.2,1);
@@ -120,7 +120,7 @@ button{cursor:pointer}
 .chip{height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:transparent;font-weight:600;color:var(--muted);transition:background-color .2s,color .2s,border-color .2s}
 .chip:hover{color:var(--text)}
 .chip[aria-pressed="true"]{background:var(--wa);color:var(--wa-ink);border-color:var(--wa)}
-.combo{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--r-sm);background:rgba(255,200,61,.1);color:var(--gold);font-weight:600;margin-bottom:28px;font-size:15px}
+.combo{display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:var(--r-sm);background:rgba(29,185,84,.12);color:var(--oferta);font-weight:600;margin-bottom:28px;font-size:15px}
 .combo svg{width:22px;height:22px;flex:none}
 
 /* duración, una sola vez para todo el catálogo */
@@ -152,7 +152,7 @@ button{cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--card-2);color:var(--text)}
 .seg-one{font-size:12px;font-weight:700;color:var(--muted);background:var(--bg-2);border-radius:999px;height:38px;display:flex;align-items:center;justify-content:center}
 .stock{font-size:12px;font-weight:700;color:var(--ok)}
-.stock.low{color:var(--gold)}
+.stock.low{color:var(--aviso)}
 .stock.out{color:var(--hot)}
 .prod-price{margin-top:auto;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
 .prod-price b{font-size:21px;font-weight:800;letter-spacing:-.03em}
@@ -261,7 +261,7 @@ body.open{overflow:hidden}
 .qty output{min-width:22px;text-align:center;font-weight:700;font-size:14px}
 .d-foot{padding:18px 22px 22px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .sum{display:flex;justify-content:space-between;color:var(--muted);font-size:15px}
-.sum.disc{color:var(--gold)}
+.sum.disc{color:var(--oferta)}
 .sum.total{color:var(--text);font-size:22px;font-weight:800;letter-spacing:-.02em}
 .d-foot input{height:50px;border-radius:var(--r-sm);border:1px solid var(--line);background:var(--card);padding:0 16px;outline:none}
 .d-foot input:focus{border-color:var(--wa)}
@@ -499,6 +499,6 @@ body.open{overflow:hidden}
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
