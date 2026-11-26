@@ -152,8 +152,25 @@ PARA NO TENER PROBLEMAS CON FACEBOOK
   cuentas de Netflix": es la frase que marcan los filtros de
   comercio de Meta. Todos los textos ya están escritos así.
 
-- No uses Marketplace ni la pestaña Tienda. El pedido y el pago
-  se cierran siempre en WhatsApp.
+- No uses Marketplace, ni la pestaña Tienda, NI EL CATÁLOGO DE
+  WHATSAPP BUSINESS. Los tres están cubiertos por la regla 19 de
+  las Políticas de Comercio de Meta, que prohíbe promocionar la
+  venta de "suscripciones digitales o cuentas digitales". En
+  WhatsApp atiendes por chat normal y mandas el link de
+  pantallazo.site; no cargues las plataformas como productos.
+
+- Nunca digas que eres "oficial", "distribuidor autorizado" o
+  "aliado" de ninguna plataforma. Hacerte pasar por una marca
+  conocida es fraude según las normas de Meta, y esa sí te
+  cuesta la página.
+
+- Cumple lo que prometen los textos: entrega en minutos,
+  reposición si falla y atención de 8 a 9. Meta cuenta las
+  quejas de clientes ("no me entregaron", "no era lo que
+  anunciaban") y con suficientes restringe la página. Si algún
+  día pones respuestas automáticas en WhatsApp, quita las
+  publicaciones que dicen "te responde una persona" (11, 18
+  y 25).
 
 - Nombra las plataformas en el texto, eso es legítimo. Pero no
   uses sus logos ni hashtags de marca (#Netflix, #DisneyPlus):
