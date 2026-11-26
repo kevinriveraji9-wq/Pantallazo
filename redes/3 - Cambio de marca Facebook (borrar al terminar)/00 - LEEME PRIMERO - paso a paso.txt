@@ -1,0 +1,201 @@
+﻿CAMBIO DE MARCA DE LA PÁGINA DE FACEBOOK
+Página: https://www.facebook.com/profile.php?id=61589019483539
+
+Esta carpeta tiene todo lo que necesitas para dejar la página con
+la marca nueva. Los archivos están numerados en el orden en que se
+usan. Cuando termines, borra esta carpeta: ya no hace falta.
+
+Los archivos .txt traen SOLO el texto a pegar. Ábrelos, Ctrl+A,
+Ctrl+C, y lo pegas en Facebook con Ctrl+V.
+
+
+============================================================
+PASO 0 · ¿ES UNA PÁGINA O UN PERFIL?
+============================================================
+
+Esa dirección la usan las dos cosas, así que mira antes de empezar:
+
+- Si arriba ves "Me gusta" / "Seguidores" y un botón
+  "Promocionar", es una PÁGINA. Sigue con el paso 1.
+
+- Si ves "Agregar a amigos" o "Editar perfil", es un PERFIL
+  PERSONAL. Pásalo a página primero:
+  Menú (☰) → Configuración → "Pasar el perfil a una página".
+
+Un perfil personal no sirve para vender: Facebook puede cerrarlo
+por uso comercial, y no tiene estadísticas, botón de WhatsApp ni
+horarios. La página sí.
+
+
+============================================================
+PASO 1 · FOTO DE PERFIL
+============================================================
+
+Archivo: "01 - Foto de perfil.png"
+
+Clic en la foto de perfil → "Actualizar foto de perfil" → sube
+el archivo. Sin filtro ni marco.
+
+Hay otra opción en "02 - Foto de perfil (otra opcion).png", pero
+te recomiendo la 01: en el celular la foto se ve de unos 40
+píxeles, y a ese tamaño solo se distingue una forma simple con
+mucho contraste.
+
+
+============================================================
+PASO 2 · PORTADA
+============================================================
+
+Archivo: "03 - Portada.png"
+
+Clic en la portada → "Editar portada" → "Subir foto". No la
+muevas ni la recortes: ya está hecha para que el texto quede
+visible en celular y la parte de abajo libre, que es donde
+Facebook pone tu foto de perfil y el nombre.
+
+
+============================================================
+PASO 3 · NOMBRE DE LA PÁGINA
+============================================================
+
+Archivo: "04 - Nombre de la pagina.txt"  →  Pantallazo
+
+Si ya hay otra página con ese nombre, usa:
+Pantallazo · Streaming Colombia
+
+No le agregues palabras de relleno tipo "Pantallazo Netflix
+Disney barato": Facebook lo penaliza y te hace ver improvisado.
+
+
+============================================================
+PASO 4 · NOMBRE DE USUARIO
+============================================================
+
+Es lo que queda en el link: facebook.com/pantallazo.co
+
+En Configuración de la página → Nombre de usuario. Prueba en
+este orden y quédate con el primero que esté libre:
+
+  pantallazo.co
+  pantallazosite
+  pantallazostreaming
+
+
+============================================================
+PASO 5 · CATEGORÍA
+============================================================
+
+Pon estas, en este orden:
+
+  Tienda en línea
+  Servicio de streaming
+  Producto digital
+
+
+============================================================
+PASO 6 · DESCRIPCIÓN CORTA
+============================================================
+
+Archivo: "05 - Descripcion corta.txt"
+
+Es la que aparece debajo del nombre.
+
+
+============================================================
+PASO 7 · INFORMACIÓN DETALLADA ("ACERCA DE")
+============================================================
+
+Archivo: "06 - Informacion detallada (Acerca de).txt"
+
+
+============================================================
+PASO 8 · DATOS DE CONTACTO
+============================================================
+
+  Sitio web:  https://pantallazo.site
+  WhatsApp:   +57 310 707 5235
+  Correo:     el que uses para el negocio
+  Horario:    todos los días, 8:00 a. m. a 9:00 p. m.
+  Ubicación:  SOLO la ciudad. No pongas la dirección de tu casa.
+
+
+============================================================
+PASO 9 · BOTÓN DE WHATSAPP
+============================================================
+
+Editar → Botón de acción → "Enviar mensaje de WhatsApp" y
+conectas el número +57 310 707 5235.
+
+Si Facebook no te deja conectar WhatsApp, elige "Más
+información" y pon este link:
+
+  https://wa.me/573107075235
+
+
+============================================================
+PASO 10 · PUBLICACIÓN FIJADA
+============================================================
+
+Imagen: "07 - Publicacion fijada - imagen.png"
+Texto:  "07 - Publicacion fijada - texto.txt"
+
+Publícala, y después: los tres puntos (⋯) de la publicación →
+"Fijar en la parte superior". Así es lo primero que ve
+cualquiera que llegue a la página.
+
+
+============================================================
+PARA NO TENER PROBLEMAS CON FACEBOOK
+============================================================
+
+- Habla de ACCESO, PANTALLAS y PERFILES. Nunca escribas "vendo
+  cuentas de Netflix": es la frase que marcan los filtros de
+  comercio de Meta. Todos los textos ya están escritos así.
+
+- No uses Marketplace ni la pestaña Tienda. El pedido y el pago
+  se cierran siempre en WhatsApp.
+
+- Nombra las plataformas en el texto, eso es legítimo. Pero no
+  uses sus logos ni hashtags de marca (#Netflix, #DisneyPlus):
+  te hacen ver como página oficial y es lo que rastrean para
+  reportar revendedores. Las imágenes ya usan solo el nombre.
+
+- Te van a suplantar: aparecerán perfiles con tu nombre y tu
+  foto escribiéndole a tus clientes. La publicación 16 del
+  calendario dice cuál es tu único número; vuelve a publicarla
+  cada vez que pase.
+
+
+============================================================
+LOS PRIMEROS SIETE DÍAS
+============================================================
+
+1. Haz los pasos 1 a 10 el mismo día, para que quien llegue
+   encuentre una página terminada.
+
+2. Invita a tus contactos: (⋯) → "Invitar amigos". Los primeros
+   seguidores salen de ahí, no de anuncios.
+
+3. Empieza el calendario de la carpeta "1 - Textos de
+   publicaciones".
+
+4. Únete a dos o tres grupos de compraventa de tu ciudad y
+   responde dudas de streaming SIN VENDER. Al que pregunte
+   precio, le escribes por privado.
+
+5. Responde todo en menos de una hora. Facebook le muestra a
+   los visitantes qué tan rápido respondes, y eso vende más
+   que cualquier anuncio.
+
+No pagues publicidad todavía: primero necesitas 15 o 20
+publicaciones y algunos comentarios reales. Si no, la plata se
+va en llevar gente a una página vacía.
+
+
+============================================================
+CUANDO TERMINES
+============================================================
+
+Borra esta carpeta completa. Las imágenes de las publicaciones
+siguen en "2 - Imagenes de publicaciones" y los textos en
+"1 - Textos de publicaciones".
