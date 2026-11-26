@@ -22,6 +22,13 @@ que las imágenes queden iguales a la tienda.
 está cada título. Los catálogos cambian; dale una mirada rápida antes de
 publicar.
 
+**Los hashtags no llevan nombres de marca** a propósito: `#Netflix` o
+`#DisneyPlus` te hacen ver como página oficial de ellos y son lo que
+rastrean los equipos de protección de marca. En el texto sí se nombran las
+plataformas, que es legítimo y necesario. Si quieres hashtags que traigan
+gente, agrégale el de tu ciudad (`#Medellín`, `#Cali`, el que sea): esos
+sirven mucho más que los de marca.
+
 ---
 
 ## Semana 1
@@ -41,7 +48,7 @@ Netflix $14.000 · Max $9.000 · Disney+ $8.000 · Prime Video $8.000 · Paramou
 
 Armas tu pedido en https://pantallazo.site y te sale el total solo. Si prefieres, escríbenos directo: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos
 ```
 
 ### Día 2 · Martes · Educativo
@@ -77,7 +84,7 @@ Si en tu casa son varios, la cuenta completa con los 4 perfiles queda en $50.000
 
 Lo pides aquí: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Netflix #NetflixColombia #Series
+#Pantallazo #Streaming #Colombia #Series #Entretenimiento
 ```
 
 ### Día 4 · Jueves · Confianza
@@ -113,7 +120,7 @@ Ejemplo: Netflix más Disney+ serían $22.000; con el descuento quedan en $19.80
 
 Ármalo en https://pantallazo.site y el total se calcula solo.
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos #Combo #Descuento
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos #Combo #Descuento
 ```
 
 ### Día 6 · Sábado · Recomendación
@@ -134,7 +141,7 @@ Si te falta alguna de esas plataformas, la pantalla arranca en $7.000 al mes y l
 
 ¿Cuál vas a ver? Cuéntanos en los comentarios.
 
-#Pantallazo #Streaming #Colombia #Series #Películas #CuentasDeStreaming #QuéVer
+#Pantallazo #Streaming #Colombia #Series #Películas #QuéVer
 ```
 
 ### Día 7 · Domingo · Cómo funciona
@@ -173,7 +180,7 @@ Pantalla $8.000. Cuenta completa con los 4 perfiles $35.000.
 
 Lo pides aquí: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #DisneyPlus #Marvel #StarWars
+#Pantallazo #Streaming #Colombia #Series #Películas #Familia
 ```
 
 ### Día 9 · Martes · Educativo
@@ -191,7 +198,7 @@ CUENTA COMPLETA: todos los perfiles son tuyos para repartir en tu casa o tu fami
 
 Si no sabes cuál te conviene, escríbenos y lo miramos juntos: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #ComprasSeguras #AtenciónAlCliente #Streaming
+#Pantallazo #Streaming #Colombia #ComprasSeguras #AtenciónAlCliente
 ```
 
 ### Día 10 · Miércoles · Plataforma
@@ -209,7 +216,7 @@ Pantalla $9.000. Cuenta completa con 3 perfiles $24.000, que son $8.000 por pers
 
 Lo pides aquí: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Max #HBO #Series
+#Pantallazo #Streaming #Colombia #Series #Películas
 ```
 
 ### Día 11 · Jueves · Confianza
@@ -249,7 +256,7 @@ Si llevas 2 o más, 10% de descuento en el total.
 
 https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Spotify #CanvaPro #YouTubePremium #Gemini
+#Pantallazo #Streaming #Colombia #Música #Diseño #Estudio
 ```
 
 ### Día 13 · Sábado · Recomendación
@@ -267,7 +274,7 @@ Pantalla $7.000 al mes. Cuenta completa con 4 perfiles $18.000.
 
 ¿Cuál es tu favorito? Lo discutimos en los comentarios.
 
-#Pantallazo #Streaming #Colombia #Anime #Crunchyroll #OnePiece
+#Pantallazo #Streaming #Colombia #Anime #Otaku
 ```
 
 ### Día 14 · Domingo · Confianza
@@ -311,7 +318,7 @@ Todas son pantallas con tu perfil y tu PIN. Si llevas 2 o más, 10% menos en el 
 
 Ármalo en https://pantallazo.site
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos
 ```
 
 ### Día 16 · Martes · Confianza
@@ -329,7 +336,7 @@ Si alguien te escribe pidiéndote eso y dice que es de Pantallazo, no le respond
 
 Nuestro único número: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #ComprasSeguras #AtenciónAlCliente #ComprasSeguras
+#Pantallazo #Streaming #Colombia #ComprasSeguras #AtenciónAlCliente
 ```
 
 ### Día 17 · Miércoles · Plataforma
@@ -347,7 +354,7 @@ La cuenta queda a tu nombre.
 
 https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Gemini #InteligenciaArtificial #GoogleAI
+#Pantallazo #Streaming #Colombia #InteligenciaArtificial #IA #Productividad
 ```
 
 ### Día 18 · Jueves · Confianza
@@ -384,7 +391,7 @@ Y eso se suma al 10% por llevar 2 o más plataformas. De paso te quitas el recor
 
 Mira cuánto te queda en https://pantallazo.site — el total se calcula solo.
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos #Descuento
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos #Descuento
 ```
 
 ### Día 20 · Sábado · Plataforma
@@ -402,7 +409,7 @@ Pantalla $16.000. Cuenta completa $45.000.
 
 Pregúntanos por disponibilidad antes de pagar: https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #DGO #Deportes #TVenVivo
+#Pantallazo #Streaming #Colombia #Deportes #TVenVivo
 ```
 
 ### Día 21 · Domingo · Comunidad
@@ -418,7 +425,7 @@ Déjalo en los comentarios con la plataforma donde está. Nos sirve de verdad: a
 
 Y si lo que quieres ver está en una plataforma que no tienes, mírala en https://pantallazo.site — hay pantallas desde $7.000.
 
-#Pantallazo #Streaming #Colombia #Series #Películas #CuentasDeStreaming #QuéVer
+#Pantallazo #Streaming #Colombia #Series #Películas #QuéVer
 ```
 
 ## Semana 4
@@ -441,7 +448,7 @@ Son menos de lo que cuesta un almuerzo corriente y te duran todo el mes. Y si ll
 
 https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos #Económico
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos #Económico
 ```
 
 ### Día 23 · Martes · Educativo
@@ -479,7 +486,7 @@ Si también quieres YouTube Premium, los dos juntos te salen con 10% de descuent
 
 https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Spotify #SpotifyPremium #Música
+#Pantallazo #Streaming #Colombia #Música #SinAnuncios
 ```
 
 ### Día 25 · Jueves · Confianza
@@ -520,7 +527,7 @@ Solo te pedimos no cambiar el correo ni la clave sin avisarnos, para poder darte
 
 https://wa.me/573107075235
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos #CuentasCompletas #Familia
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos #Familia
 ```
 
 ### Día 27 · Sábado · Recomendación
@@ -541,7 +548,7 @@ Disney+ desde $8.000 y Max desde $9.000. Y en Disney+ puedes poner el perfil de 
 
 ¿Qué ven en tu casa? Cuéntanos.
 
-#Pantallazo #Streaming #Colombia #Familia #DisneyPlus #ParaNiños
+#Pantallazo #Streaming #Colombia #Familia #ParaNiños
 ```
 
 ### Día 28 · Domingo · Cómo funciona
@@ -587,7 +594,7 @@ El mes que entra seguimos con los mismos precios y la misma garantía: todo el p
 
 https://pantallazo.site
 
-#Pantallazo #Streaming #Colombia #Netflix #DisneyPlus #PreciosBajos
+#Pantallazo #Streaming #Colombia #Entretenimiento #PreciosJustos
 ```
 
 ### Día 30 · Martes · Comunidad

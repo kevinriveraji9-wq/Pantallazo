@@ -87,13 +87,13 @@ Producto digital
 ## 5. Descripción corta (la que se ve debajo del nombre)
 
 ```
-Pantallas y cuentas de streaming desde $7.000 al mes. Lo pides por WhatsApp y recibes el acceso en minutos. Con garantía todo el periodo.
+Acceso a tus plataformas favoritas desde $7.000 al mes. Lo pides por WhatsApp y lo recibes en minutos. Con garantía todo el periodo.
 ```
 
 ## 6. Información detallada ("Acerca de")
 
 ```
-Vendemos pantallas y cuentas completas de las plataformas que ya usas: Netflix, Disney+, Max, Prime Video, Paramount+, Universal+, Crunchyroll, DGO, Spotify, YouTube Premium, Canva Pro, Gemini y Duolingo.
+Damos acceso a las plataformas que ya usas: Netflix, Disney+, Max, Prime Video, Paramount+, Universal+, Crunchyroll, DGO, Spotify, YouTube Premium, Canva Pro, Gemini y Duolingo.
 
 Una pantalla es un perfil tuyo, con tu nombre y tu PIN, dentro de una cuenta compartida. Una cuenta completa trae todos los perfiles para repartir en tu casa.
 
@@ -140,7 +140,7 @@ superior**):
 ```
 Bienvenido a Pantallazo 👋
 
-Vendemos pantallas y cuentas de streaming desde $7.000 al mes.
+Acceso a tus plataformas favoritas desde $7.000 al mes: pantallas con tu propio perfil, o el plan completo para toda la casa.
 
 Así funciona:
 1. Armas tu pedido en https://pantallazo.site — agregas plataformas y meses, y el total se calcula solo.
@@ -156,14 +156,29 @@ WhatsApp: https://wa.me/573107075235
 
 ---
 
-## 10. Dos cosas que te van a pasar
+## 10. Tres cosas que te van a pasar
 
 **Facebook a veces restringe publicaciones de este rubro.** Su política
 de comercio no deja anunciar "venta de cuentas" de servicios digitales.
-Por eso todos los textos del calendario hablan de **pantallas, perfiles y
-acceso**, y el pago siempre se cierra en WhatsApp, no dentro de Facebook.
-No uses Marketplace ni la pestaña Tienda para esto, y no escribas "vendo
-cuentas de Netflix" literalmente: es la frase que más se les marca.
+Por eso todos los textos del calendario hablan de **acceso, pantallas y
+perfiles**, nunca de "vender cuentas", y el pago siempre se cierra en
+WhatsApp, no dentro de Facebook. No uses Marketplace ni la pestaña Tienda
+para esto, y no escribas "vendo cuentas de Netflix" literalmente: es la
+frase que más se les marca.
+
+**Nombra las marcas, pero no te cuelgues de ellas.** En el cuerpo del
+texto puedes decir Netflix o Disney+ con toda tranquilidad: es la única
+manera de explicar qué ofreces y la ley lo permite. Lo que sí quitamos
+fueron los hashtags de marca (`#Netflix`, `#DisneyPlus`, `#Marvel`,
+`#HBO`…). Dos razones: te hacen ver como página oficial de ellos, que es
+justo lo que no eres, y son lo que rastrean los equipos de protección de
+marca para encontrar revendedores. Alcance te daban poquísimo. Si quieres
+hashtags que sirvan, usa los de tu ciudad: `#Medellín`, `#Cali`, lo que
+corresponda. Esos sí traen clientes.
+
+Por lo mismo, en las imágenes aparece el **nombre** de cada plataforma en
+su color, nunca su logotipo: reproducir un logotipo ajeno en publicidad
+propia es el reclamo de marca más fácil de ganar que existe.
 
 **Te van a suplantar.** En cuanto la página tenga movimiento aparecerán
 perfiles con tu mismo nombre y tu misma foto escribiéndole a tus clientes.

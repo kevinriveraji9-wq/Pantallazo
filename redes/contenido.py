@@ -31,13 +31,13 @@ C = {
 }
 
 H_BASE = "#Pantallazo #Streaming #Colombia"
-H_SERIES = H_BASE + " #Series #Películas #CuentasDeStreaming"
-H_PRECIO = H_BASE + " #Netflix #DisneyPlus #PreciosBajos"
+H_SERIES = H_BASE + " #Series #Películas #QuéVer"
+H_PRECIO = H_BASE + " #Entretenimiento #PreciosJustos"
 H_AYUDA = H_BASE + " #ComprasSeguras #AtenciónAlCliente"
 
 
 PORTADA = {
-    "titulo": "Pantallas y cuentas de streaming",
+    "titulo": "Tus plataformas, en un solo lugar",
     "sub": "Lo pides por WhatsApp y recibes el acceso en minutos",
     "sello": "Desde $7.000 al mes",
 }
@@ -116,7 +116,7 @@ PUBLICACIONES = [
             "queda en $50.000.\n\n"
             "Lo pides aquí: " + WA
         ),
-        "etiquetas": H_BASE + " #Netflix #NetflixColombia #Series",
+        "etiquetas": H_BASE + " #Series #Entretenimiento",
     },
     {
         "dia": 4, "pilar": "Confianza", "plantilla": "declaracion",
@@ -242,7 +242,7 @@ PUBLICACIONES = [
             "Pantalla $8.000. Cuenta completa con los 4 perfiles $35.000.\n\n"
             "Lo pides aquí: " + WA
         ),
-        "etiquetas": H_BASE + " #DisneyPlus #Marvel #StarWars",
+        "etiquetas": H_BASE + " #Series #Películas #Familia",
     },
     {
         "dia": 9, "pilar": "Educativo", "plantilla": "declaracion",
@@ -286,7 +286,7 @@ PUBLICACIONES = [
             "$8.000 por persona.\n\n"
             "Lo pides aquí: " + WA
         ),
-        "etiquetas": H_BASE + " #Max #HBO #Series",
+        "etiquetas": H_BASE + " #Series #Películas",
     },
     {
         "dia": 11, "pilar": "Confianza", "plantilla": "numero",
@@ -330,7 +330,7 @@ PUBLICACIONES = [
             "Duolingo Super $7.000 — sin anuncios y con vidas ilimitadas\n\n"
             "Si llevas 2 o más, 10% de descuento en el total.\n\n" + WA
         ),
-        "etiquetas": H_BASE + " #Spotify #CanvaPro #YouTubePremium #Gemini",
+        "etiquetas": H_BASE + " #Música #Diseño #Estudio",
     },
     {
         "dia": 13, "pilar": "Recomendación", "plantilla": "que_ver",
@@ -352,7 +352,7 @@ PUBLICACIONES = [
             "Pantalla $7.000 al mes. Cuenta completa con 4 perfiles $18.000.\n\n"
             "¿Cuál es tu favorito? Lo discutimos en los comentarios."
         ),
-        "etiquetas": H_BASE + " #Anime #Crunchyroll #OnePiece",
+        "etiquetas": H_BASE + " #Anime #Otaku",
     },
     {
         "dia": 14, "pilar": "Confianza", "plantilla": "declaracion",
@@ -452,7 +452,7 @@ PUBLICACIONES = [
             "almacenamiento extra.\n\n"
             "La cuenta queda a tu nombre.\n\n" + WA
         ),
-        "etiquetas": H_BASE + " #Gemini #InteligenciaArtificial #GoogleAI",
+        "etiquetas": H_BASE + " #InteligenciaArtificial #IA #Productividad",
     },
     {
         "dia": 18, "pilar": "Confianza", "plantilla": "declaracion",
@@ -515,7 +515,7 @@ PUBLICACIONES = [
             "Pantalla $16.000. Cuenta completa $45.000.\n\n"
             "Pregúntanos por disponibilidad antes de pagar: " + WA
         ),
-        "etiquetas": H_BASE + " #DGO #Deportes #TVenVivo",
+        "etiquetas": H_BASE + " #Deportes #TVenVivo",
     },
     {
         "dia": 21, "pilar": "Comunidad", "plantilla": "pregunta",
@@ -607,7 +607,7 @@ PUBLICACIONES = [
             "Si también quieres YouTube Premium, los dos juntos te salen con "
             "10% de descuento.\n\n" + WA
         ),
-        "etiquetas": H_BASE + " #Spotify #SpotifyPremium #Música",
+        "etiquetas": H_BASE + " #Música #SinAnuncios",
     },
     {
         "dia": 25, "pilar": "Confianza", "plantilla": "declaracion",
@@ -634,7 +634,7 @@ PUBLICACIONES = [
         "dia": 26, "pilar": "Precios", "plantilla": "lista",
         "datos": {
             "ante": "Para toda la casa",
-            "titulo": "Cuentas completas",
+            "titulo": "Todos los perfiles para tu casa",
             "filas": [
                 ("Netflix", "$50.000", "4 perfiles, $12.500 cada uno"),
                 ("DGO", "$45.000", "TV en vivo y deportes"),
@@ -657,7 +657,7 @@ PUBLICACIONES = [
             "Solo te pedimos no cambiar el correo ni la clave sin avisarnos, "
             "para poder darte soporte.\n\n" + WA
         ),
-        "etiquetas": H_PRECIO + " #CuentasCompletas #Familia",
+        "etiquetas": H_PRECIO + " #Familia",
     },
     {
         "dia": 27, "pilar": "Recomendación", "plantilla": "que_ver",
@@ -682,7 +682,7 @@ PUBLICACIONES = [
             "poner el perfil de niño, que filtra solo lo que les sirve.\n\n"
             "¿Qué ven en tu casa? Cuéntanos."
         ),
-        "etiquetas": H_BASE + " #Familia #DisneyPlus #ParaNiños",
+        "etiquetas": H_BASE + " #Familia #ParaNiños",
     },
     {
         "dia": 28, "pilar": "Cómo funciona", "plantilla": "pasos",
@@ -777,3 +777,17 @@ def nombre_archivo(p):
 
 def dia_semana(n):
     return DIAS[(n - 1) % 7]
+
+
+def etiquetas(p):
+    """
+    Los hashtags sin repetidos: varias publicaciones le suman uno propio
+    a un juego base que ya lo traia, y publicar dos veces el mismo se ve mal.
+    """
+    vistas, limpias = set(), []
+    for h in p["etiquetas"].split():
+        clave = h.lower()
+        if clave not in vistas:
+            vistas.add(clave)
+            limpias.append(h)
+    return " ".join(limpias)

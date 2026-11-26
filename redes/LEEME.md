@@ -46,9 +46,24 @@ enorme), `que_ver` (recomendaciones) y `pregunta` (para que comenten).
 Para una publicación suelta, agrega un bloque más a `PUBLICACIONES` en
 `contenido.py` copiando uno parecido.
 
-## Sobre los logos de las plataformas
+## Sobre las marcas de las plataformas
 
-Las piezas usan el **nombre** de cada plataforma en su color de marca, no
-el logo. Es a propósito: decir "vendo acceso a Netflix" es legítimo, pero
-reproducir el logotipo de Netflix en tu publicidad no lo es, y es la vía
-más rápida a un reclamo por marca registrada que te tumba la página.
+Tres decisiones que están tomadas a propósito, para no acabar con la
+página bloqueada:
+
+- **Nada de logotipos.** Las piezas usan el **nombre** de cada plataforma
+  en su color, nunca su logo. Nombrarla para decir qué ofreces es
+  legítimo; reproducir su logotipo en publicidad propia es el reclamo de
+  marca más fácil de ganar que existe.
+- **Nada de imágenes de las plataformas.** Ni carátulas, ni fotogramas, ni
+  música. Todas las imágenes las dibuja el generador desde cero, así que
+  no hay nada que un detector de contenido registrado pueda reclamar.
+- **Nada de hashtags de marca.** `#Netflix`, `#DisneyPlus`, `#Marvel` y
+  compañía quedaron fuera: dan a entender que eres página oficial y son lo
+  que rastrean los equipos de protección de marca. Si quieres hashtags
+  útiles, usa el de tu ciudad.
+
+El texto de las publicaciones sí nombra las plataformas, que es necesario
+para explicar qué vendes, y habla siempre de **acceso, pantallas y
+perfiles** — nunca de "vender cuentas", que es la frase que marcan los
+filtros de comercio de Meta.

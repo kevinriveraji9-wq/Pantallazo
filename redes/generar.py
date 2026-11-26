@@ -70,6 +70,13 @@ que las imágenes queden iguales a la tienda.
 está cada título. Los catálogos cambian; dale una mirada rápida antes de
 publicar.
 
+**Los hashtags no llevan nombres de marca** a propósito: `#Netflix` o
+`#DisneyPlus` te hacen ver como página oficial de ellos y son lo que
+rastrean los equipos de protección de marca. En el texto sí se nombran las
+plataformas, que es legítimo y necesario. Si quieres hashtags que traigan
+gente, agrégale el de tu ciudad (`#Medellín`, `#Cali`, el que sea): esos
+sirven mucho más que los de marca.
+
 ---
 
 """
@@ -106,7 +113,7 @@ def calendario(hechas):
                    % (p["dia"], c.dia_semana(p["dia"]), p["pilar"]))
         out.append("**Imagen:** `redes/imagenes/%s`\n\n" % c.nombre_archivo(p))
         out.append("**Texto para publicar:**\n\n```\n")
-        out.append(p["texto"] + "\n\n" + p["etiquetas"] + "\n")
+        out.append(p["texto"] + "\n\n" + c.etiquetas(p) + "\n")
         out.append("```\n\n")
     out.append(PIE)
 
