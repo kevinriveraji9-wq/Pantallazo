@@ -22,7 +22,7 @@ SetEnvIf Authorization "(.+)" HTTP_AUTHORIZATION=$1
   RewriteRule ^admin/?$ admin.html [L]
 
   # Bloquear carpetas y archivos privados
-  RewriteRule ^(data|plantillas|version-anterior|\.git)(/|$) - [F,L]
+  RewriteRule ^(data|plantillas|\.git)(/|$) - [F,L]
 </IfModule>
 
 # Archivos que nunca deben verse desde el navegador

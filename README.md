@@ -15,7 +15,6 @@ Tienda de pantallas y cuentas de streaming con pedido por WhatsApp, panel de adm
 | `marca/` | Logo e imágenes de la marca |
 | `plantillas/plantilla-inventario.csv` | Plantilla para cargar el inventario desde Excel |
 | `router.php` | Solo para probar en tu computador |
-| `version-anterior/` | Primer diseño. No se publica |
 
 ## Cómo está instalado en DonWeb (pantallazo.site)
 
@@ -57,7 +56,7 @@ Anota la ruta completa que muestra el Administrador de archivos, por ejemplo `/h
 ### 3. Sube los archivos
 
 **Opción A — ZIP (más fácil):**
-1. Descarga este repositorio como ZIP (botón verde *Code > Download ZIP* en GitHub) o usa `pantallazo-doweb.zip`.
+1. Descarga este repositorio como ZIP (botón verde *Code > Download ZIP* en GitHub).
 2. En el Administrador de archivos entra a `public_html` (o a la carpeta del dominio), pulsa **Cargar** y sube el ZIP.
 3. Clic derecho sobre el ZIP > **Extraer**. Si se crea una subcarpeta (por ejemplo `Pantallazo-main`), mueve su contenido a `public_html`.
 4. Verifica que estén `index.html`, `api.php` y `.htaccess` directamente en `public_html`. Para ver `.htaccess`, activa *Configuración > Mostrar archivos ocultos*.
